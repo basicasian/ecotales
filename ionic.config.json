@@ -1,0 +1,8 @@
+{
+  "name": "ecotales",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "4070185e"
+}
