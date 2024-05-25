@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'tabs/tab2',
     loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+  },
+  {
+    path: 'info/info-panda',
+    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
   }
 ];
 

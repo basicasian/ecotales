@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private location: Location) {}
+  goBack() {
+    this.location.back(); // Use the location.back() method
+  }
+
+  ngOnInit() {
+  }
 
 }

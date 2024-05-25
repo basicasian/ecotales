@@ -1,17 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons (click)="goBack()" fill="clear">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+      Back
+    </ion-buttons>
     <ion-title>
-      Tab 2
+      Page 2
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content class="ion-padding">
+  <h1>Page Two</h1>
+  <p>Use the back button to navigate to the previous page.</p>
 </ion-content>
