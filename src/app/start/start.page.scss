@@ -19,6 +19,7 @@
         top: 23rem;
         left: -2rem;
         animation-delay: 0.5s;
+        rotate: -5deg;
     }
 
     &2 {
@@ -26,13 +27,15 @@
         top: 33rem;
         left: 1rem;
         animation-delay: 1s;
+        rotate: 8deg;
     }
 
     &3 {
         position: fixed;
-        top: 31rem;
-        left: 10rem;
+        top: 29rem;
+        left: 11rem;
         animation-delay: 1.5s;
+        rotate: -9deg;
     }
 
     &4 {
@@ -40,6 +43,7 @@
         top: 41rem;
         left: 8rem;
         animation-delay: 2s;
+        rotate: 5deg;
     }
 
     &5 {
@@ -47,6 +51,7 @@
         top: 37rem;
         left: 17rem;
         animation-delay: 2.5s;
+        rotate: -6deg;
     }
 
     &6 {
@@ -54,6 +59,7 @@
         top: 47rem;
         left: 16rem;
         animation-delay: 3s;
+        rotate: 10deg;
     }
 
     &7 {
@@ -61,6 +67,7 @@
         top: 50em;
         left: 26rem;
         animation-delay: 3.5s;
+        rotate: -8deg;
     }
 }
 

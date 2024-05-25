@@ -1,5 +1,28 @@
 ion-col {
-    border: solid 1px #fff;
-    color: #fff;
+    /*  border: solid 1px #fff; 
+    color: #fff;*/
     text-align: center;
-  }
+}
+
+ion-grid {
+    padding: 0;
+}
+
+ion-col {
+    padding: 0;
+}
+
+ion-card-header {
+    padding: 8px;
+}
+
+ion-card {
+    margin-inline: 5px;
+    margin-bottom: -15px;
+}
+
+ion-card-subtitle {
+    text-transform: none;
+    font-weight: normal;
+    text-align: left;
+}
