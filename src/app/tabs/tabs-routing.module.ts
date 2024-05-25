@@ -12,19 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'info',
-    component: TabsPage,
-    children: [
-      {
-        path: 'info-panda',
-        loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
-      },
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-      }
-    ]
+    path: 'info/info-panda',
+    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
+  },
+  {
+    path: 'contribute/contribute-panda',
+    loadChildren: () => import('../contribute-panda/contribute-panda.module').then(m => m.ContributePandaPageModule)
   },
   {
     path: 'tabs',
