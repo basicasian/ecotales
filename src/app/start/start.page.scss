@@ -1,4 +1,4 @@
-.centered-container { 
+.centered-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -8,4 +8,72 @@
 
 .ion-activatable {
     height: 100vh;
+}
+
+.paw {
+    animation: one 2s forwards;
+    opacity: 0;
+
+    &1 {
+        position: fixed;
+        top: 23rem;
+        left: -2rem;
+        animation-delay: 0.5s;
+    }
+
+    &2 {
+        position: fixed;
+        top: 33rem;
+        left: 1rem;
+        animation-delay: 1s;
+    }
+
+    &3 {
+        position: fixed;
+        top: 31rem;
+        left: 10rem;
+        animation-delay: 1.5s;
+    }
+
+    &4 {
+        position: fixed;
+        top: 41rem;
+        left: 8rem;
+        animation-delay: 2s;
+    }
+
+    &5 {
+        position: fixed;
+        top: 37rem;
+        left: 17rem;
+        animation-delay: 2.5s;
+    }
+
+    &6 {
+        position: fixed;
+        top: 47rem;
+        left: 16rem;
+        animation-delay: 3s;
+    }
+
+    &7 {
+        position: fixed;
+        top: 50em;
+        left: 26rem;
+        animation-delay: 3.5s;
+    }
+}
+
+@keyframes one {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
 }

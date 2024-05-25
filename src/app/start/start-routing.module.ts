@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: StartPage
+  },
+  {
+    path: 'info/info-panda',
+    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
   }
 ];
 

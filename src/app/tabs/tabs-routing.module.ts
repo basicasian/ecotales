@@ -4,12 +4,12 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
-  },
-  {
     path: 'start',
     loadChildren: () => import('../start/start.module').then(m => m.StartPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'info',
@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/start',
     pathMatch: 'full'
   }
 ];
