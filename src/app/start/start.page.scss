@@ -6,6 +6,32 @@
     padding: 10px;
 }
 
+.title{
+    animation: fadeIn 3s forwards;
+    opacity: 0;
+
+    &1 {
+        animation-delay: 1s;
+    }
+
+    &2 {
+        animation-delay: 3.5s;
+    }
+
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 .ion-activatable {
     height: 100vh;
 }

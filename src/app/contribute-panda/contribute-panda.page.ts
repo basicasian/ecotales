@@ -59,6 +59,26 @@ export class ContributePandaPage implements OnInit {
       src: 'https://media1.tenor.com/m/06uIzDXgpzAAAAAd/panda.gif',
       title: 'pandas second favourite food, carrots ',
       text: 'This is the third sample image.'
+    },
+    {
+      src: 'https://www.zoovienna.at/media/_versions_/historische_bilder/pandaspaar_animal_detail_935.jpg',
+      title: 'Pandas are social creatures',
+      text: 'This is the third sample image.'
+    },
+    {
+      src: 'https://images.photowall.com/products/77719/panda-family.jpg?h=699&q=85',
+      title: 'a family of pandas',
+      text: 'This is the third sample image.'
+    },
+    {
+      src: 'https://media0.faz.net/ppmedia/w1240/aktuell/gesellschaft/2069964342/1.9299660/1900x850/der-grosse-panda-tian-tian-im.jpg.webp',
+      title: 'Panda Mei Mei in Washington',
+      text: 'This is the third sample image.'
+    },
+    {
+      src: 'https://artprojectsforkids.org/wp-content/uploads/2021/12/How-to-Draw-a-Panda.jpg',
+      title: 'Educating kids about pandas',
+      text: 'This is the third sample image.'
     }
   ];
 
@@ -79,5 +99,9 @@ export class ContributePandaPage implements OnInit {
         this.column2.push(this.images[i]);
       }
     }
+  }
+
+  uploadImage() {
+    
   }
 }
