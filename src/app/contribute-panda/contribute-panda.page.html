@@ -16,90 +16,18 @@
 
   <ion-grid>
     <ion-row>
-      <!-- left column -->
-      <ion-col size="6" size-sm="4" size-lg="2">
-        <ion-card>
-          <img src="https://i.etsystatic.com/39444598/r/il/8594b7/4724622363/il_1588xN.4724622363_he20.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle> panda and humans </ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
+      <!-- column split dynamically -->
+      <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
-        <ion-card>
-          <img
-            src="https://www.creativefabrica.com/wp-content/uploads/2023/03/18/watercolor-panda-vector-illustration-Graphics-64669253-1-1-580x387.jpg" />
+        <ion-card *ngFor="let image of column">
+          <img [src]="image.src"/>
           <ion-card-header>
-            <ion-card-subtitle>water colour panda</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img
-            src="https://t4.ftcdn.net/jpg/05/98/56/99/360_F_598569952_q5h7Z3FkRdpSZrZorsAqH73x1MELNxIK.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle>the was once upon a time a panda who...</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img
-            src="https://assets.teenvogue.com/photos/59e226a544d1c409bf422aa5/master/w_1600,c_limit/GettyImages-860897142.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle>Panda Conservation and Research Center in China </ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img
-            src="https://qph.cf2.quoracdn.net/main-qimg-5492f4adb3425a3bba145a8c82b6185d-lq" />
-          <ion-card-header>
-            <ion-card-subtitle>A Panda with his Caretaker</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-
-      <!-- right column -->
-      <ion-col size="6" size-sm="4" size-lg="2">
-        <ion-card>
-          <img
-            src="https://www.zoovienna.at/media/_versions_/userphotos/norbert-potensky/2014-04/foto_38_ma_animal_detail_935.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle>Bao Bao's First Climb </ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img
-            src="https://assets.teenvogue.com/photos/59e22755a875a3564524a95c/16:9/w_2240,c_limit/GettyImages-860938106.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle>36 Baby Pandas Debut at the China Conservation and Research Center for the Giant Panda</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img
-            src="https://img.freepik.com/vektoren-kostenlos/pandas-konzeptillustration_114360-7664.jpg?w=1380&t=st=1716646599~exp=1716647199~hmac=7c7de7ed08f4ee9f983f65510734defb5eeb91bbfa82a44fce33b80b5bf6d527" />
-          <ion-card-header>
-            <ion-card-subtitle>the modern panda</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-
-        <ion-card>
-          <img src="http://en.people.cn/NMediaFile/2018/0926/FOREIGN201809261601000079177020752.jpeg" />
-          <ion-card-header>
-            <ion-card-subtitle>a first adventure</ion-card-subtitle>
-          </ion-card-header>
-        </ion-card>
-        
-        <ion-card>
-          <img src="https://media1.tenor.com/m/06uIzDXgpzAAAAAd/panda.gif" />
-          <ion-card-header>
-            <ion-card-subtitle>pandas second favourite food, carrots </ion-card-subtitle>
+            <ion-card-subtitle> {{image.title}} </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
 
       </ion-col>
-
+      
     </ion-row>
   </ion-grid>
 
