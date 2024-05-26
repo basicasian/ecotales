@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostData } from '../data/data-post';
+import { ModalType } from '../data/modal-type';
+
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+
 
 @Component({
   selector: 'app-contribute-panda',
@@ -96,20 +99,20 @@ export class ContributePandaPage implements OnInit {
       "comments": ["Great drawing!", "Drawing is a fun way to learn.", "Kids learn so much through creativity."]
     }
   ];
- 
-  
+
   column1: PostData[] = [];
   column2: PostData[] = [];
 
-  isModalOpen = false;
   currentPost: PostData = {
     src: '',
     title: '',
     text: '',
     comments: []
   };
+  isViewModalOpen = false;
+  isCreateModalOpen = false;
 
-  newComment:string = '';
+  newComment: string = '';
 
   constructor(private router: Router) {
   }
@@ -129,19 +132,24 @@ export class ContributePandaPage implements OnInit {
     }
   }
 
-  setModalData(isOpen: boolean, newPost: PostData) {
-    this.isModalOpen = isOpen;
-    this.currentPost = newPost;
-  }
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  } 
+  setModalOpen(isOpen: boolean, type: string, data: undefined | PostData) {
+    if (type === "create") {
+      this.isCreateModalOpen = isOpen;
+    }
+    else if (type === "view") {
+      this.isViewModalOpen = isOpen;
+    }
+
+    if (data != undefined) {
+      this.currentPost = data;
+    }
+  }
 
   addComment() {
     this.currentPost.comments.push(this.newComment);
     console.log(this.newComment);
-    
+
     this.newComment = '';
   }
 

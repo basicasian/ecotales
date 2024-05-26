@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ContributePandaPageRoutingModule } from './contribute-panda-routing.module';
 
 import { ContributePandaPage } from './contribute-panda.page';
+import { ContainerViewPostComponentModule } from '../container-view-post/container-view-post.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ContributePandaPageRoutingModule
+    ContributePandaPageRoutingModule,
+    ContainerViewPostComponentModule
   ],
   declarations: [ContributePandaPage]
 })

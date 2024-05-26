@@ -19,7 +19,7 @@
       <!-- column split dynamically -->
       <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
-        <ion-card *ngFor="let post of column" expand="block" (click)="setModalData(true, post)">
+        <ion-card *ngFor="let post of column" expand="block" (click)="setModalOpen(true, 'view', post)">
           <img [src]="post.src" />
           <ion-card-header>
             <ion-card-subtitle> {{post.title}} </ion-card-subtitle>
@@ -30,60 +30,100 @@
     </ion-row>
   </ion-grid>
 
+</ion-content>
 
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
+<!-- view post modal -->
+<ion-modal [isOpen]="isViewModalOpen">
+  <ng-template>
 
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>{{currentPost.title}}</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setModalOpen(false, 'view', undefined)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-      <ion-content class="ion-padding">
-        <img [src]="currentPost.src" />
-        <p> {{currentPost.text}} </p>
+    <ion-content class="ion-padding">
 
-        <ion-chip style="--background: #8888883d" *ngFor="let comment of currentPost.comments">
-          <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
-          <ion-text style="max-width: 90%;">
-            {{comment}}
-          </ion-text>
-        </ion-chip>
+      <img [src]="currentPost.src" />
+      <ion-card-title style="padding-top: 14px; font-size: 18px;">{{currentPost.title}}</ion-card-title>
+      <p> {{currentPost.text}} </p>
 
-      </ion-content>
-
-      <ion-chip style="--background: #8888883d">
-        <ion-chip style="width: 90%; height: 70%;">
-          <ion-input placeholder="Write a comment!" [(ngModel)]="newComment" (keyup.enter)="addComment()"></ion-input>
-        </ion-chip>
-        <ion-icon (click)="addComment()" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+      <ion-chip style="--background: #8888883d" *ngFor="let comment of currentPost.comments">
+        <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
+        <ion-text style="max-width: 90%;">
+          {{comment}}
+        </ion-text>
       </ion-chip>
 
-    </ng-template>
-  </ion-modal>
+    </ion-content>
 
+    <ion-chip style="--background: #8888883d">
+      <ion-chip style="width: 90%; height: 70%;">
+        <ion-input placeholder="Write a comment!" [(ngModel)]="newComment" (keyup.enter)="addComment()"></ion-input>
+      </ion-chip>
+      <ion-icon (click)="addComment()" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+    </ion-chip>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="chevron-up-circle"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button>
-        <ion-icon name="create"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="color-palette"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon (click)="openFile()" name="camera" onclick=""></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-    
-  </ion-fab>
+  </ng-template>
+</ion-modal>
 
+<!-- create post modal -->
+<ion-modal [isOpen]="isCreateModalOpen">
   <input type="file" id="input_file" accept="image/*" hidden>
-</ion-content>
+
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setModalOpen(false, 'create', undefined)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <ion-card style="width: 95%; height: 25%; margin-bottom: 20px;">
+        <ion-icon name="add-circle-outline" style="height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)"></ion-icon>
+      </ion-card>
+
+      <ion-chip style="width: 95%;">
+        <ion-input placeholder="Add a post title"></ion-input>
+      </ion-chip>
+
+      <ion-chip style="width: 95%; height:60%">
+        <ion-textarea placeholder="Add a post description"></ion-textarea>
+      </ion-chip>
+    </ion-content>
+
+    <ion-button expand="block">Post</ion-button>
+
+  </ng-template>
+</ion-modal>
+
+<!-- fab -->
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="chevron-up-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-icon (click)="openFile()" name="create"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="color-palette"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="camera" (click)="setModalOpen(true, 'create', undefined)"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
