@@ -19,10 +19,10 @@
       <!-- column split dynamically -->
       <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
-        <ion-card *ngFor="let image of column" expand="block" (click)="setModalData(true, image)">
-          <img [src]="image.src" />
+        <ion-card *ngFor="let post of column" expand="block" (click)="setModalData(true, post)">
+          <img [src]="post.src" />
           <ion-card-header>
-            <ion-card-subtitle> {{image.title}} </ion-card-subtitle>
+            <ion-card-subtitle> {{post.title}} </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
 
@@ -36,7 +36,7 @@
 
       <ion-header>
         <ion-toolbar>
-          <ion-title>{{currentImage.title}}</ion-title>
+          <ion-title>{{currentPost.title}}</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="setOpen(false)">Close</ion-button>
           </ion-buttons>
@@ -44,10 +44,10 @@
       </ion-header>
 
       <ion-content class="ion-padding">
-        <img [src]="currentImage.src" />
-        <p> {{currentImage.text}} </p>
+        <img [src]="currentPost.src" />
+        <p> {{currentPost.text}} </p>
 
-        <ion-chip style="--background: #8888883d" *ngFor="let comment of currentImage.comments">
+        <ion-chip style="--background: #8888883d" *ngFor="let comment of currentPost.comments">
           <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
           <ion-text style="max-width: 90%;">
             {{comment}}
@@ -79,15 +79,11 @@
         <ion-icon name="color-palette"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
-        <ion-icon name="camera" onclick=""></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="videocam"></ion-icon>
+        <ion-icon (click)="openFile()" name="camera" onclick=""></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
+    
   </ion-fab>
 
-
-
-
+  <input type="file" id="input_file" accept="image/*" hidden>
 </ion-content>

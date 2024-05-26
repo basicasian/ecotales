@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ImageData } from '../data/data-image';
+import { PostData } from '../data/data-post';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
@@ -10,7 +10,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['./contribute-panda.page.scss'],
 })
 export class ContributePandaPage implements OnInit {
-  images: ImageData[] = [
+  posts: PostData[] = [
     {
       "src": "https://i.etsystatic.com/39444598/r/il/8594b7/4724622363/il_1588xN.4724622363_he20.jpg",
       "title": "Panda and Humans",
@@ -98,11 +98,11 @@ export class ContributePandaPage implements OnInit {
   ];
  
   
-  column1: ImageData[] = [];
-  column2: ImageData[] = [];
+  column1: PostData[] = [];
+  column2: PostData[] = [];
 
   isModalOpen = false;
-  currentImage: ImageData = {
+  currentPost: PostData = {
     src: '',
     title: '',
     text: '',
@@ -120,18 +120,18 @@ export class ContributePandaPage implements OnInit {
   }
 
   splitColumns() {
-    for (let i = 0; i < this.images.length; i++) {
+    for (let i = 0; i < this.posts.length; i++) {
       if (i % 2 === 0) {
-        this.column1.push(this.images[i]);
+        this.column1.push(this.posts[i]);
       } else {
-        this.column2.push(this.images[i]);
+        this.column2.push(this.posts[i]);
       }
     }
   }
 
-  setModalData(isOpen: boolean, newImage: ImageData) {
+  setModalData(isOpen: boolean, newPost: PostData) {
     this.isModalOpen = isOpen;
-    this.currentImage = newImage;
+    this.currentPost = newPost;
   }
 
   setOpen(isOpen: boolean) {
@@ -139,10 +139,16 @@ export class ContributePandaPage implements OnInit {
   } 
 
   addComment() {
-    this.currentImage.comments.push(this.newComment);
+    this.currentPost.comments.push(this.newComment);
     console.log(this.newComment);
     
     this.newComment = '';
+  }
+
+  openFile(): void {
+    const inputFile = document.getElementById('input_file') as HTMLInputElement;
+    inputFile.click();
+    console.log(inputFile.value);
   }
 }
 
