@@ -47,12 +47,22 @@
         <p> {{currentImage.text}} </p>
       </ion-content>
 
-      <ion-chip>
-        <ion-avatar style="height: 40px; width: 40px;">
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        </ion-avatar>
-        <ion-textarea placeholder="Write a comment!"></ion-textarea>
-        <ion-icon style="height: 50px; width: 50px;" name="chevron-forward-circle"></ion-icon>      
+
+      <ion-chip style="--background: #8888883d" *ngFor="let comment of currentImage.comments">
+        <ion-icon style="height: 40px; width: 40px;" name="paw"></ion-icon>
+        <ion-text>
+          {{comment}}
+        </ion-text>
+
+      </ion-chip>
+
+
+
+      <ion-chip style="--background: #8888883d">
+        <ion-chip style="width: 90%; height: 70%;">
+          <ion-input placeholder="Write a comment!"></ion-input>
+        </ion-chip>
+        <ion-icon style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
       </ion-chip>
 
     </ng-template>
