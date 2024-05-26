@@ -58,9 +58,9 @@
 
       <ion-chip style="--background: #8888883d">
         <ion-chip style="width: 90%; height: 70%;">
-          <ion-input placeholder="Write a comment!"></ion-input>
+          <ion-input placeholder="Write a comment!" [(ngModel)]="newComment" (keyup.enter)="addComment()"></ion-input>
         </ion-chip>
-        <ion-icon (click)="" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+        <ion-icon (click)="addComment()" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
       </ion-chip>
 
     </ng-template>

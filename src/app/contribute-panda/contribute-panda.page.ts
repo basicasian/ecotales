@@ -109,6 +109,8 @@ export class ContributePandaPage implements OnInit {
     comments: []
   };
 
+  newComment:string = '';
+
   constructor(private router: Router) {
   }
 
@@ -134,6 +136,13 @@ export class ContributePandaPage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  } 
+
+  addComment() {
+    this.currentImage.comments.push(this.newComment);
+    console.log(this.newComment);
+    
+    this.newComment = '';
   }
 }
 
