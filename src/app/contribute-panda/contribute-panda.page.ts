@@ -15,7 +15,7 @@ export class ContributePandaPage implements OnInit {
       "src": "https://i.etsystatic.com/39444598/r/il/8594b7/4724622363/il_1588xN.4724622363_he20.jpg",
       "title": "Panda and Humans",
       "text": "I recently visited a panda sanctuary with my family, and we had the most amazing experience interacting with these gentle giants! 🐼 My kids were thrilled to see pandas up close and personal. The caretakers were so knowledgeable and passionate about their work, it really inspired us. It made me realize how important it is to support these conservation efforts. Such a beautiful and educational trip! 🌿",
-      "comments": ["Amazing experience!", "Your kids must have loved it!", "It's so important to support conservation efforts."]
+      "comments": ["Amazing experience!", "Your kids must have loved it!", "It's so important to support conservation efforts, I also think it is important to show kids that, we as adults, take these things seriously."]
     },
     {
       "src": "https://www.creativefabrica.com/wp-content/uploads/2023/03/18/watercolor-panda-vector-illustration-Graphics-64669253-1-1-580x387.jpg",

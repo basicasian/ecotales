@@ -42,27 +42,25 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
+
       <ion-content class="ion-padding">
         <img [src]="currentImage.src" />
         <p> {{currentImage.text}} </p>
+
+        <ion-chip style="--background: #8888883d" *ngFor="let comment of currentImage.comments">
+          <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
+          <ion-text style="max-width: 90%;">
+            {{comment}}
+          </ion-text>
+        </ion-chip>
+
       </ion-content>
-
-
-      <ion-chip style="--background: #8888883d" *ngFor="let comment of currentImage.comments">
-        <ion-icon style="height: 40px; width: 40px;" name="paw"></ion-icon>
-        <ion-text>
-          {{comment}}
-        </ion-text>
-
-      </ion-chip>
-
-
 
       <ion-chip style="--background: #8888883d">
         <ion-chip style="width: 90%; height: 70%;">
           <ion-input placeholder="Write a comment!"></ion-input>
         </ion-chip>
-        <ion-icon style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+        <ion-icon (click)="" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
       </ion-chip>
 
     </ng-template>
