@@ -14,54 +14,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
+  <ion-card *ngFor="let info of infos">
+    <img *ngIf="info.src != '' " [src]="info.src" />
     <ion-card-header>
-      <ion-card-title>Preserving the Giant Panda</ion-card-title>
-      <ion-card-subtitle>Endangered No More? The Panda's Struggle and Hope</ion-card-subtitle>
+      <ion-card-title>{{info.title}}</ion-card-title>
+      <ion-card-subtitle>{{info.subtitle}}</ion-card-subtitle>
     </ion-card-header>
-
     <ion-card-content>
-      <p>Giant pandas, with their adorable black and white fur and love for bamboo, are iconic animals. However, these
-        gentle giants were once classified as endangered. Habitat loss and poaching threatened their very existence. But
-        thanks to dedicated conservation efforts, the story of the panda offers a glimmer of hope.</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Panda Power</ion-card-title>
-      <ion-card-subtitle>From Endangered to Hopeful</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Pandas, with their iconic black and white fur, were once endangered. Habitat loss due to human activity shrinks
-        the bamboo forests they depend on for food. Thankfully, conservation efforts are helping these gentle giants
-        make a comeback.</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img 
-      src="https://static.nationalgeographic.de/files/styles/image_3200/public/nl-travel-20200925-010rp.webp?w=1450&h=816" />
-    <ion-card-header>
-      <ion-card-title>From Worm to Bear</ion-card-title>
-      <ion-card-subtitle>The life cycle of a panda </ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Believe it or not, a panda starts life incredibly tiny!  These adorable creatures hatch from an egg no bigger than a walnut, and initially resemble a blind, pink worm. Over time, they grow fur and develop their signature black and white markings. After a few months, they begin to walk and explore, eventually graduating to a bamboo diet - their main source of food as adults.</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Road to Success</ion-card-title>
-      <ion-card-subtitle>Conservation Success Story</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Protected areas like nature reserves offer pandas safe havens. Breeding programs in zoos help boost their
-        numbers. With continued conservation efforts, these charismatic creatures have a brighter future.</p>
+      <p>{{info.text}}</p>
     </ion-card-content>
   </ion-card>
 
