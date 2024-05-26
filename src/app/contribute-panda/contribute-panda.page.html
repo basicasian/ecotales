@@ -19,15 +19,45 @@
       <!-- column split dynamically -->
       <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
-        <ion-card *ngFor="let image of column">
-          <img [src]="image.src"/>
+        <ion-card *ngFor="let image of column" expand="block" (click)="setModalData(true, image)">
+          <img [src]="image.src" />
           <ion-card-header>
             <ion-card-subtitle> {{image.title}} </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
+
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{currentImage.title}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <img [src]="currentImage.src" />
+        <p> {{currentImage.text}} </p>
+      </ion-content>
+
+      <ion-chip>
+        <ion-avatar style="height: 40px; width: 40px;">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-textarea placeholder="Write a comment!"></ion-textarea>
+        <ion-icon style="height: 50px; width: 50px;" name="chevron-forward-circle"></ion-icon>      
+      </ion-chip>
+
+    </ng-template>
+  </ion-modal>
+
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>
@@ -48,5 +78,8 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+
+
+
 
 </ion-content>
