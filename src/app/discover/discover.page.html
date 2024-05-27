@@ -7,13 +7,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header collapse="condense" class="fadeIn fadeIn0">
     <ion-toolbar>
       <ion-title size="large">discover</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-card *ngFor="let info of infos">
+
+  <ion-card *ngFor="let info of infos; let i = index" [ngClass]="'fadeIn fadeIn'+(i+1)"
+    [ngStyle]="{'animation-delay': (i+1)*0.7 + 's'}">
     <img *ngIf="info.src != '' " [src]="info.src" />
     <ion-card-header>
       <ion-card-title>{{info.title}}</ion-card-title>
@@ -21,12 +22,13 @@
     </ion-card-header>
 
     <ion-card-content>
-     {{info.text}}
+      {{info.text}}
     </ion-card-content>
 
     <div style="display: flex; justify-content: flex-end; padding: 0%">
       <ion-button href="{{info.href}}" fill="clear">Learn More</ion-button>
     </div>
+
   </ion-card>
 
 </ion-content>

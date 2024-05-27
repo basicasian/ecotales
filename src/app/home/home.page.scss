@@ -21,14 +21,6 @@
     }
 }
 
-p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    position: absolute;
-    left: 50%;
-    top: 120%;
-    transform: translate(-50%, -50%);
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -37,3 +29,12 @@ p {
         opacity: 1;
     }
 }
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    transform: translate(-50%, -50%);
+}
+
