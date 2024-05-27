@@ -5,7 +5,7 @@ import { ModalType } from '../data/modal-type';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
-
+import {IonContent} from '@ionic/angular';
 
 @Component({
   selector: 'app-share',
@@ -13,6 +13,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['./share.page.scss'],
 })
 export class SharePage implements OnInit {
+  @ViewChild(IonContent) content!: IonContent;
+
   posts: PostData[] = [
     {
       "src": "https://www.zoovienna.at/media/_versions_/userphotos/norbert-potensky/2014-04/foto_38_ma_animal_detail_935.jpg",
@@ -123,7 +125,6 @@ export class SharePage implements OnInit {
       "comments": ["Love the modern style.", "Art connects us to nature in such a beautiful way.", "This illustration is stunning."]
     }
   ];
-  
 
   column1: PostData[] = [];
   column2: PostData[] = [];
@@ -134,20 +135,28 @@ export class SharePage implements OnInit {
     text: '',
     comments: []
   };
+
+  createdPost: PostData = {
+    src: '',
+    title: '',
+    text: '',
+    comments: []
+  };
+
   isViewModalOpen = false;
   isCreateModalOpen = false;
-
   newComment: string = '';
 
   constructor(private router: Router) {
   }
-
 
   ngOnInit() {
     this.splitColumns();
   }
 
   splitColumns() {
+    this.column1 = [];
+    this.column2 = [];
     for (let i = 0; i < this.posts.length; i++) {
       if (i % 2 === 0) {
         this.column1.push(this.posts[i]);
@@ -177,13 +186,46 @@ export class SharePage implements OnInit {
       console.log(this.newComment);
       this.newComment = '';
     }
-
   }
 
-  openFile(): void {
+  triggerClick(): void {
     const inputFile = document.getElementById('input_file') as HTMLInputElement;
     inputFile.click();
-    console.log(inputFile.value);
   }
+
+  onSelectFile(event: Event): void {
+    if (event.target instanceof HTMLInputElement && event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
+        this.createdPost.src = event.target?.result as string;
+      }
+    }
+  }
+
+  resetCreatedPost() {
+    this.createdPost = {
+      src: '',
+      title: '',
+      text: '',
+      comments: []
+    };
+  }
+
+  addPost() {
+    if (this.createdPost.src === '' || this.createdPost.title == '' || this.createdPost.text === '') {
+      return;
+    } 
+
+    this.posts.unshift(this.createdPost);
+    this.resetCreatedPost();
+    this.splitColumns();
+    this.setModalOpen(false, 'create', undefined);
+
+    this.content.scrollToTop(0);  
+  }
+
 }
 
