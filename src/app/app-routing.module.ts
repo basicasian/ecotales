@@ -12,6 +12,10 @@ const routes: Routes = [
   },  {
     path: 'contribute-panda',
     loadChildren: () => import('./contribute-panda/contribute-panda.module').then( m => m.ContributePandaPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
 
 

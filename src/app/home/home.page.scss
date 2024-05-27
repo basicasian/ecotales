@@ -1,4 +1,39 @@
 
-.card-content-ios {
-    padding-bottom: 0px;
+.ion-fab {
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+
+    &1 {
+        margin-left: -100px;
+        animation-delay: 0.7s;
+    }
+
+    &2 {
+        animation-delay: 1.4s;
+    }
+
+    &3 {
+        margin-left: 100px;        
+        animation-delay: 2.1s;
+    }
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

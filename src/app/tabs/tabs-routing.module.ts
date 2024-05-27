@@ -8,8 +8,8 @@ const routes: Routes = [
     loadChildren: () => import('../start/start.module').then(m => m.StartPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+    path: 'discover',
+    loadChildren: () => import('../discover/discover.module').then(m => m.DiscoverPageModule)
   },
   {
     path: 'info/info-panda',

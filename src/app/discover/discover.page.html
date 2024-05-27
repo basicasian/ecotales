@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true">
+  <ion-title>
+    Discover
+  </ion-title>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Discover</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-card *ngFor="let info of infos">
+    <img *ngIf="info.src != '' " [src]="info.src" />
+    <ion-card-header>
+      <ion-card-title>{{info.title}}</ion-card-title>
+      <ion-card-subtitle>{{info.subtitle}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+     {{info.text}}
+    </ion-card-content>
+
+    <div style="display: flex; justify-content: flex-end; padding: 0%">
+      <ion-button [href]="'info/info-' + info.id" fill="clear">Learn More</ion-button>
+      <ion-button [href]="'contribute/contribute-' + info.id" fill="clear">Contribute</ion-button>
+    </div>
+  </ion-card>
+
+</ion-content>
