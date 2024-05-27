@@ -16,11 +16,6 @@ const routes: Routes = [
     path: 'info/info-panda',
     loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
   }
-  ,
-  {
-    path: 'contribute/contribute-panda',
-    loadChildren: () => import('../contribute-panda/contribute-panda.module').then(m => m.ContributePandaPageModule)
-  }
 ];
 
 @NgModule({

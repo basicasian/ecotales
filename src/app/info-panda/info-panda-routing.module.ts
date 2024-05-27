@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { InfoPandaPage } from './info-panda.page';
-import { ContributePandaPage } from '../contribute-panda/contribute-panda.page';
+import { SharePage } from '../share/share.page';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'contribute-panda',
-    loadChildren: () => import('../contribute-panda/contribute-panda.module').then( m => m.ContributePandaPageModule)
+    loadChildren: () => import('../share/share.module').then( m => m.SharePageModule)
   }
 ];
 

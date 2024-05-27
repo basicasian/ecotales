@@ -1,16 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button default-href="/info/info-panda"></ion-back-button>
+      <ion-back-button default-href="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>protect pandas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">protect pandas</ion-title>
+      <ion-title size="large">share your stories</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -113,17 +112,6 @@
 <!-- fab -->
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
   <ion-fab-button>
-    <ion-icon name="chevron-up-circle"></ion-icon>
+    <ion-icon name="add" (click)="setModalOpen(true, 'create', undefined)"></ion-icon>
   </ion-fab-button>
-  <ion-fab-list side="top">
-    <ion-fab-button>
-      <ion-icon (click)="openFile()" name="create"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button>
-      <ion-icon name="color-palette"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button>
-      <ion-icon name="camera" (click)="setModalOpen(true, 'create', undefined)"></ion-icon>
-    </ion-fab-button>
-  </ion-fab-list>
 </ion-fab>

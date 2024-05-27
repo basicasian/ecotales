@@ -9,9 +9,10 @@ const routes: Routes = [
   {
     path: 'start',
     loadChildren: () => import('./start/start.module').then( m => m.StartPageModule)
-  },  {
+  },
+  {
     path: 'contribute-panda',
-    loadChildren: () => import('./contribute-panda/contribute-panda.module').then( m => m.ContributePandaPageModule)
+    loadChildren: () => import('./share/share.module').then( m => m.SharePageModule)
   },
   {
     path: 'home',

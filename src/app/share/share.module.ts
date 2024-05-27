@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ContributePandaPageRoutingModule } from './contribute-panda-routing.module';
+import { SharePageRoutingModule } from './share-routing.module';
 
-import { ContributePandaPage } from './contribute-panda.page';
+import { SharePage } from './share.page';
 import { ContainerViewPostComponentModule } from '../container-view-post/container-view-post.module';
 
 
@@ -15,9 +15,9 @@ import { ContainerViewPostComponentModule } from '../container-view-post/contain
     CommonModule,
     FormsModule,
     IonicModule,
-    ContributePandaPageRoutingModule,
+    SharePageRoutingModule,
     ContainerViewPostComponentModule
   ],
-  declarations: [ContributePandaPage]
+  declarations: [SharePage]
 })
-export class ContributePandaPageModule {}
+export class SharePageModule {}

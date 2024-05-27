@@ -12,12 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('../discover/discover.module').then(m => m.DiscoverPageModule)
   },
   {
-    path: 'info/info-panda',
-    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
+    path: 'share',
+    loadChildren: () => import('../share/share.module').then(m => m.SharePageModule)
   },
   {
-    path: 'contribute/contribute-panda',
-    loadChildren: () => import('../contribute-panda/contribute-panda.module').then(m => m.ContributePandaPageModule)
+    path: 'info/info-panda',
+    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
   },
   {
     path: 'tabs',
