@@ -1,6 +1,6 @@
 .centered-container {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
@@ -10,7 +10,7 @@
     height: 100vh;
 }
 
-.title{
+.fadeIn{
     animation: fadeIn 3s forwards;
     opacity: 0;
 

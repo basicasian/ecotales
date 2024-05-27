@@ -16,6 +16,10 @@ ion-card-header {
     padding: 8px;
 }
 
+ion-title {
+    padding-top: 15px;
+}
+
 ion-card {
     margin-inline: 5px;
     margin-bottom: -15px;
@@ -37,3 +41,20 @@ ion-avatar {
     margin-left: 5px;
 }
 
+.fadeIn {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+
+    &0 {
+        animation-delay: 0.3s;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

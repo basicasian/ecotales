@@ -172,10 +172,12 @@ export class SharePage implements OnInit {
   }
 
   addComment() {
-    this.currentPost.comments.push(this.newComment);
-    console.log(this.newComment);
+    if (this.newComment != '') {
+      this.currentPost.comments.push(this.newComment);
+      console.log(this.newComment);
+      this.newComment = '';
+    }
 
-    this.newComment = '';
   }
 
   openFile(): void {

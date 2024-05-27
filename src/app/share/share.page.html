@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header collapse="condense" class="fadeIn fadeIn0">
     <ion-toolbar>
       <ion-title size="large">share your stories</ion-title>
     </ion-toolbar>
@@ -18,7 +18,8 @@
       <!-- column split dynamically -->
       <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
-        <ion-card *ngFor="let post of column" expand="block" (click)="setModalOpen(true, 'view', post)">
+        <ion-card *ngFor="let post of column; let i = index" expand="block" [ngClass]="'fadeIn fadeIn'+(i+1)"
+          (click)="setModalOpen(true, 'view', post)" [ngStyle]="{'animation-delay': (i+1)*0.5 + 's'}">
           <img [src]="post.src" />
           <ion-card-header>
             <ion-card-subtitle> {{post.title}} </ion-card-subtitle>
