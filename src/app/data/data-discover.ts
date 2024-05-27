@@ -4,4 +4,5 @@ export interface DiscoverData {
     title: string;
     subtitle: string;
     text: string;
+    href: string;
 }

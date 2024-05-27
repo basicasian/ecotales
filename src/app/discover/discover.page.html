@@ -31,8 +31,7 @@
     </ion-card-content>
 
     <div style="display: flex; justify-content: flex-end; padding: 0%">
-      <ion-button [href]="'info/info-' + info.id" fill="clear">Learn More</ion-button>
-      <ion-button [href]="'contribute/contribute-' + info.id" fill="clear">Contribute</ion-button>
+      <ion-button href="{{info.href}}" fill="clear">Learn More</ion-button>
     </div>
   </ion-card>
 
