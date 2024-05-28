@@ -18,7 +18,8 @@
     <ion-grid>
       <ion-row  *ngFor="let row of [row1, row2, row3]">
         <ion-col *ngFor="let painting of row; let i = index" >
-            <img [src]="painting"/>
+            <img *ngIf="painting != ''" [src]="painting"/>
+            <ion-icon *ngIf="painting == ''" style="height: 30px; width: 30px;" name="paw"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>

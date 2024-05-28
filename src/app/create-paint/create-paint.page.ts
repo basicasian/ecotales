@@ -13,7 +13,7 @@ export class CreatePaintPage implements OnInit {
       "id": "1",
       "src": [
         "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
-        "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
+        "", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
         "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
       ]
     },
