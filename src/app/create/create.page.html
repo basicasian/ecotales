@@ -7,19 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense" class="fadeIn fadeIn0">
-    <ion-toolbar>
-      <ion-title size="large">create a story</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div class="centered-container">
-    <div class="card" href="write">
+
+    <ion-title size="large" class="fadeIn fadeIn0">create a story</ion-title>
+    
+    <div class="card fadeIn fadeIn1" (click)="goToPage('create-write')" >
       <p>write</p>
       <img src="../../assets/images/create-write2.webp" />
     </div>
   
-    <div class="card" href="paint" >
+    <div class="card fadeIn fadeIn2" (click)="goToPage('create-paint')" >
       <p>paint</p>
       <img src="../../assets/images/create-paint.webp" />
     </div>

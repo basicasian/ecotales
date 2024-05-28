@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostData } from '../data/data-post';
+import { Router } from '@angular/router';
+
 import * as jsonPosts from '../../assets/json/posts.json';
 
 @Component({
@@ -17,7 +19,9 @@ export class CreatePage implements OnInit {
   };
   posts: PostData[] = [];
 
-  constructor() { }
+  constructor(private router: Router){
+  }
+  
 
   ngOnInit() {
 
@@ -33,6 +37,10 @@ export class CreatePage implements OnInit {
     // localStorage.setItem('posts', JSON.stringify(this.posts));
 
     console.log(this.posts);
+  }
+
+  goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
   }
 
 

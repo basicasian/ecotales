@@ -26,7 +26,15 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },  {
+    path: 'create-paint',
+    loadChildren: () => import('./create-paint/create-paint.module').then( m => m.CreatePaintPageModule)
+  },
+  {
+    path: 'create-write',
+    loadChildren: () => import('./create-write/create-write.module').then( m => m.CreateWritePageModule)
   }
+
 ];
 
 @NgModule({
