@@ -13,4 +13,20 @@
       <ion-title size="large">paint a part of a story</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-grid>
+      <ion-row  *ngFor="let row of [row1, row2, row3]">
+        <ion-col *ngFor="let painting of row; let i = index" >
+            <img [src]="painting"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-grid>
+
+
+
+  <ion-button expand="block" (click)="addPart();">Contribute</ion-button>
+
 </ion-content>
