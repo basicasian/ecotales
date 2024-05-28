@@ -5,7 +5,7 @@ import { ModalType } from '../data/modal-type';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
-import {IonContent} from '@ionic/angular';
+import { IonContent } from '@ionic/angular';
 
 import * as jsonPosts from '../../assets/json/posts.json';
 
@@ -86,9 +86,11 @@ export class SharePage implements OnInit {
       this.newComment = '';
 
       // update localStorage with whole json
+      var objIndex = this.posts.findIndex(obj => obj.src == this.currentPost.src); 
+      this.posts[objIndex].comments = this.currentPost.comments;
       localStorage.setItem('posts', JSON.stringify(this.posts));
 
-      console.log(localStorage.getItem('posts'));
+      console.log(this.posts);
     }
 
   }
@@ -122,7 +124,7 @@ export class SharePage implements OnInit {
   addPost() {
     if (this.createdPost.src === '' || this.createdPost.title == '' || this.createdPost.text === '') {
       return;
-    } 
+    }
 
     this.posts.unshift(this.createdPost);
 
@@ -133,7 +135,7 @@ export class SharePage implements OnInit {
     this.splitColumns();
     this.setModalOpen(false, 'create', undefined);
 
-    this.content.scrollToTop(0);  
+    this.content.scrollToTop(0);
   }
 
 }
