@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('../share/share.module').then(m => m.SharePageModule)
   },
   {
-    path: 'info/info-panda',
-    loadChildren: () => import('../info-panda/info-panda.module').then(m => m.InfoPandaPageModule)
-  },
-  {
     path: 'tabs',
     component: TabsPage,
     children: [

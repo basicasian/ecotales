@@ -24,7 +24,7 @@
           (click)="setModalOpen(true, 'view', post)" [ngStyle]="{'animation-delay': (i+1)*0.5 + 's'}">
           <img [src]="post.src" *ngIf="post.src != ''"/>
           <ion-card-header *ngIf="post.title != ''">
-            <ion-card-subtitle > {{post.title}} </ion-card-subtitle>
+            <ion-card-subtitle> {{post.title}} </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
 

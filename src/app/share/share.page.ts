@@ -1,10 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostData } from '../data/data-post';
-import { ModalType } from '../data/modal-type';
-
 import { Router } from '@angular/router';
-import { IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
 import { IonContent } from '@ionic/angular';
 
 import * as jsonPosts from '../../assets/json/posts.json';
