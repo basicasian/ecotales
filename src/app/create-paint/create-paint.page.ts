@@ -14,7 +14,7 @@ export class CreatePaintPage implements OnInit {
       "src": [
         "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
         "", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
-        "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
+        "", "", "",
       ]
     },
     {
@@ -39,6 +39,14 @@ export class CreatePaintPage implements OnInit {
         "../../assets/images/create-write1.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
         "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
         "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp", "../../assets/images/create-write2.webp",
+      ]
+    },
+    {
+      "id": "3",
+      "src": [
+        "", "", "",
+        "", "", "",
+        "", "", "",
       ]
     },
 
@@ -68,9 +76,9 @@ export class CreatePaintPage implements OnInit {
     this.row2 = [];
     this.row3 = [];
     for (let i = 0; i < this.painting.src.length; i++) {
-      if (i % 3 === 0) {
+      if (i <= 2 ) {
         this.row1.push(this.painting.src[i]);
-      } else if (i % 3 === 1) {
+      } else if (i > 2 && i <= 5) {
         this.row2.push(this.painting.src[i]);
       } else {
         this.row3.push(this.painting.src[i]);

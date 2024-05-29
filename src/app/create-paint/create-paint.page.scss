@@ -3,10 +3,17 @@ ion-title {
     font-size: 25px;
 }
 
-ion-col {
-    padding: 0px;
+
+.uploadImage {
+    border-radius: 5%;
 }
 
-ion-row {  
-    margin-bottom: -4px;
+.image-card {
+    aspect-ratio: 1 / 1;
+}
+
+ion-card {
+    margin-inline: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
