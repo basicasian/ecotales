@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostData } from '../data/data-post';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
-
 import * as jsonPosts from '../../assets/json/posts.json';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-share',
@@ -35,7 +35,7 @@ export class SharePage implements OnInit {
   isCreateModalOpen = false;
   newComment: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dataservice: DataService) {
   }
 
   ngOnInit() {
@@ -48,6 +48,9 @@ export class SharePage implements OnInit {
     }
 
     this.splitColumns();
+
+    this.dataservice.data.forEach(data => console.log(data));
+
   }
 
   splitColumns() {

@@ -3,6 +3,7 @@ import { PaintingData } from '../data/data-painting';
 import { SubPaintingData } from '../data/data-subpainting';
 import { PostData } from '../data/data-post';
 import * as jsonPosts from '../../assets/json/posts.json';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -131,7 +132,8 @@ export class CreatePaintPage implements OnInit {
     comments: []
   };
 
-  constructor() { }
+  constructor(private router: Router, private dataservice: DataService){
+  }
 
   ngOnInit() {
 
@@ -189,6 +191,8 @@ export class CreatePaintPage implements OnInit {
 
 
   addPart() {
+
+    /*
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
       this.test = image;
@@ -201,6 +205,15 @@ export class CreatePaintPage implements OnInit {
         comments: []
       };
     })
+
+    for (let i = 0; i < this.painting.subpaintings.length; i++) {
+      if (this.painting.subpaintings[i].src == '') {
+        return;
+      } 
+    }*/
+
+    this.dataservice.sendData("test");
+    this.goToPage('share');
 
   }
 
@@ -246,7 +259,11 @@ export class CreatePaintPage implements OnInit {
     //window.location.href=image; // it will save locally
 
     return canvas.toDataURL();
+  }
 
+  
+  goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
   }
 
 
