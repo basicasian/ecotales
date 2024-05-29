@@ -10,12 +10,11 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">create a part of a story</ion-title>
+      <ion-title size="large">create a story</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
-    <ion-grid>
+  <ion-grid style="height:90%">
       <ion-row *ngFor="let row of [row1, row2, row3], let j = index">
         <ion-col *ngFor="let subpainting of row; let i = index">
 
@@ -35,18 +34,23 @@
               transform: translate(-50%, -50%)"></ion-icon>
           </ion-card>
 
-
         </ion-col>
       </ion-row>
-    </ion-grid>
+
+      <ion-chip style="width: 98%;">
+        <ion-input placeholder="Add a post title" [(ngModel)]="createdPost.title"></ion-input>
+      </ion-chip>
+    
+      <ion-chip style="width: 98%; height:25%">
+        <ion-textarea placeholder="Add a post description" [autoGrow]="true" [(ngModel)]="createdPost.text"></ion-textarea>
+      </ion-chip>
 
   </ion-grid>
 
-  <!-- DELETE THIS -->
-  <img [src]="this.createdPost.src" />
+
+
+
 
 </ion-content>
-
-
 
 <ion-button expand="block" (click)="addPart();">Contribute</ion-button>
