@@ -17,31 +17,31 @@ export class CreatePaintPage implements OnInit {
       "id": "0",
       "subpaintings": [
         {
-          "src": "../../assets/images/create-write2.webp", "editable": false
+          "src": "../../assets/images/create1/create1-1.jpg", "editable": false
         },
         {
-          "src": "../../assets/images/create-write2.webp", "editable": false
+          "src": "../../assets/images/create1/create1-2.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/create1/create1-3.jpg", "editable": false
         },
         {
           "src": "", "editable": true
         },
         {
+          "src": "../../assets/images/create1/create1-5.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/create1/create1-6.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/create1/create1-7.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/create1/create1-8.jpg", "editable": false
+        },
+        {
           "src": "", "editable": true
-        },
-        {
-          "src": "../../assets/images/create-write2.webp", "editable": false
-        },
-        {
-          "src": "../../assets/images/create-write2.webp", "editable": false
-        },
-        {
-          "src": "../../assets/images/create-write2.webp", "editable": false
-        },
-        {
-          "src": "../../assets/images/create-write2.webp", "editable": false
-        },
-        {
-          "src": "../../assets/images/create-write2.webp", "editable": false
         }
       ]
     }, {
