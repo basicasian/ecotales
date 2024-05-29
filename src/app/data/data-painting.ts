@@ -1,4 +1,6 @@
+import { SubPaintingData } from "./data-subpainting";
+
 export interface PaintingData {
     id: string;
-    src: string [];
+    subpaintings: SubPaintingData [];
 }

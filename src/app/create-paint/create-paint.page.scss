@@ -5,15 +5,21 @@ ion-title {
 
 
 .uploadImage {
-    border-radius: 5%;
     cursor: pointer;
 }
 
 .image-card {
     aspect-ratio: 1 / 1;
+    height: 100%;
+    width: 100%;
+}
+
+.disabled {
+    opacity: 100%;
 }
 
 ion-card {
+    border-radius: 5%;
     margin-inline: 0px;
     margin-top: 0px;
     margin-bottom: 0px;

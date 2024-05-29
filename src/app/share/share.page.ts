@@ -104,6 +104,9 @@ export class SharePage implements OnInit {
 
       reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
         this.createdPost.src = event.target?.result as string;
+
+        
+        console.log(this.createdPost.src);
       }
     }
   }

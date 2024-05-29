@@ -16,19 +16,24 @@
 
   <ion-grid>
     <ion-grid>
-      <ion-row  *ngFor="let row of [row1, row2, row3]">
-        <ion-col *ngFor="let painting of row; let i = index" >
-            <img class="image-card" *ngIf="painting" [src]="painting"/>
+      <ion-row *ngFor="let row of [row1, row2, row3], let j = index">
+        <ion-col *ngFor="let subpainting of row; let i = index">
 
-            <ion-card class="image-card uploadImage" *ngIf="!painting">
-              <ion-icon name="add-circle-outline" 
-              style="height: 50px;
+          <img class="image-card" [ngStyle]="{'opacity': currentOpacity}"
+            *ngIf="subpainting.editable != true && subpainting.src != ''" [src]="subpainting.src" />
+            
+          <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
+            [src]="subpainting.src" (click)="triggerClick(i, j)" />
+
+          <input type="file" id="input_file" accept="image/*" hidden (change)="onSelectFile($event)">
+          <ion-card class="image-card uploadImage" (click)="triggerClick(i, j)" *ngIf="subpainting.src == ''">
+            <ion-icon name="add-circle-outline" style="height: 50px;
               width: 50px;
               position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%)"></ion-icon>
-            </ion-card >
+          </ion-card>
 
 
         </ion-col>
