@@ -3,6 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button default-href="/home"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end" class="uploadImage">
+      <ion-icon name="reload-outline" (click)="reload()" style="height: 25px;
+      width: 25px; color: #4d8dff; margin-right: 5px;"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,35 +19,42 @@
   </ion-header>
 
   <ion-grid style="height:90%">
-      <ion-row *ngFor="let row of [row1, row2, row3], let j = index">
-        <ion-col *ngFor="let subpainting of row; let i = index">
+    <ion-row *ngFor="let row of [row1, row2, row3], let j = index">
+      <ion-col *ngFor="let subpainting of row; let i = index">
 
-          <img class="image-card" [ngStyle]="{'opacity': disabledOpacity}"
-            *ngIf="subpainting.editable != true && subpainting.src != ''" [src]="subpainting.src" />
+        <img class="image-card" [ngStyle]="{'opacity': disabledOpacity}"
+          *ngIf="subpainting.editable != true && subpainting.src != ''" [src]="subpainting.src" />
 
-          <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
-            [src]="subpainting.src" (click)="triggerClick(i, j)" />
+        <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
+          [src]="subpainting.src" (click)="triggerClick(i, j)" />
 
-          <input type="file" id="input_file" accept="image/*" hidden (change)="onSelectFile($event)">
-          <ion-card class="image-card uploadImage" (click)="triggerClick(i, j)" *ngIf="subpainting.src == ''">
-            <ion-icon name="add-circle-outline" style="height: 50px;
+        <input type="file" id="input_file" accept="image/*" hidden (change)="onSelectFile($event)">
+        <ion-card class="image-card uploadImage" (click)="triggerClick(i, j)" *ngIf="subpainting.src == ''">
+          <ion-icon name="add-circle-outline" style="height: 50px;
               width: 50px;
               position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%)"></ion-icon>
-          </ion-card>
+        </ion-card>
 
-        </ion-col>
-      </ion-row>
+      </ion-col>
+    </ion-row>
 
-      <ion-chip style="width: 98%;">
-        <ion-input placeholder="Add a post title" [(ngModel)]="createdPost.title"></ion-input>
-      </ion-chip>
-    
-      <ion-chip style="width: 98%; height:25%">
-        <ion-textarea placeholder="Add a post description" [autoGrow]="true" [(ngModel)]="createdPost.text"></ion-textarea>
-      </ion-chip>
+    <ion-chip style="width: 98%;">
+      <ion-input *ngIf="!this.painting.title" placeholder="Add a post title" [readonly]="false"
+        [(ngModel)]="createdPost.title"></ion-input>
+
+      <ion-input *ngIf="this.painting.title" [readonly]="true" [(ngModel)]="createdPost.title"></ion-input>
+    </ion-chip>
+
+    <ion-chip style="width: 98%; height:25%">
+      <ion-textarea [autoGrow]="true"
+        placeholder="Want to tell your contributers something? This is where you can do it! (This will also be the future post description)"
+        [(ngModel)]="createdPost.text">
+          {{this.painting.text}}
+      </ion-textarea>
+    </ion-chip>
 
   </ion-grid>
 

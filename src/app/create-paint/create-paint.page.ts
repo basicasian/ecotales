@@ -15,7 +15,6 @@ export class CreatePaintPage implements OnInit {
 
   paintings: PaintingData[] = [
     {
-      "id": "0",
       "subpaintings": [
         {
           "src": "../../assets/images/create1/create1-1.jpg", "editable": false
@@ -27,7 +26,7 @@ export class CreatePaintPage implements OnInit {
           "src": "../../assets/images/create1/create1-3.jpg", "editable": false
         },
         {
-          "src": "", "editable": true
+          "src": "../../assets/images/create1/create1-4.jpg", "editable": false
         },
         {
           "src": "../../assets/images/create1/create1-5.jpg", "editable": false
@@ -44,9 +43,10 @@ export class CreatePaintPage implements OnInit {
         {
           "src": "", "editable": true
         }
-      ]
+      ],
+      "title": "Natura Animale",
+      "text": "With this collaboration I wanted express how the line between nature and animals are not really defined..\nAnimals are part of nature and so are we - which is why we should take even more care about their environment.\nI totally agree with you! I added some water elements and tried to adapt to your style :)"
     }, {
-      "id": "1",
       "subpaintings": [
         {
           "src": "../../assets/images/orangutan.jpg", "editable": false
@@ -75,9 +75,10 @@ export class CreatePaintPage implements OnInit {
         {
           "src": "../../assets/images/tiger.jpg", "editable": false
         }
-      ]
+      ],
+      "title": "chinese style animals",
+      "text": "i tried to paint animals in traditional chinese style.. i wonder what the others are going to add?\nI love love this concept! Hope you like it!"
     }, {
-      "id": "2",
       "subpaintings": [
         {
           "src": "", "editable": true
@@ -106,13 +107,16 @@ export class CreatePaintPage implements OnInit {
         {
           "src": "", "editable": true
         }
-      ]
+      ],
+      "title": "",
+      "text": ""
     },
   ]
 
   painting: PaintingData = {
-    id: "",
-    subpaintings: []
+    subpaintings: [],
+    title: "",
+    text: ""
   }
 
   row1: SubPaintingData[] = [];
@@ -136,9 +140,8 @@ export class CreatePaintPage implements OnInit {
 
     // get random painting
     this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
-
+    this.createdPost.title = this.painting.title;
     this.splitRows();
-
   }
 
   splitRows() {
@@ -183,20 +186,12 @@ export class CreatePaintPage implements OnInit {
 
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
-      this.createdPost = {
-        src: image,
-        title: 'NEW',
-        text: 'new',
-        comments: []
-      };
-
+      this.createdPost.src = image;
       this.dataservice.sendData(this.createdPost);
     })
 
-
     //this.goToPage('share');
     window.location.reload();
-    
   }
 
 
@@ -238,5 +233,9 @@ export class CreatePaintPage implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
+
+  reload() {
+    window.location.reload();
+  }
 
 }

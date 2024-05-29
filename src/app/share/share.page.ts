@@ -57,8 +57,6 @@ export class SharePage implements OnInit {
     });
   }
 
-
-
   splitColumns() {
     this.column1 = [];
     this.column2 = [];
