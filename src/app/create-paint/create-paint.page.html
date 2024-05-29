@@ -21,7 +21,7 @@
 
           <img class="image-card" [ngStyle]="{'opacity': currentOpacity}"
             *ngIf="subpainting.editable != true && subpainting.src != ''" [src]="subpainting.src" />
-            
+
           <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
             [src]="subpainting.src" (click)="triggerClick(i, j)" />
 
@@ -42,8 +42,11 @@
 
   </ion-grid>
 
-
-
-  <ion-button expand="block" (click)="addPart();">Contribute</ion-button>
+  
+<img class="image-card uploadImage" [src]="test"  />
 
 </ion-content>
+
+
+
+<ion-button expand="block" (click)="addPart();">Contribute</ion-button>
