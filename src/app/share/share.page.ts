@@ -12,7 +12,7 @@ import * as jsonPosts from '../../assets/json/posts.json';
 })
 export class SharePage implements OnInit {
   @ViewChild(IonContent) content!: IonContent;
-  ///posts: PostData[] = (jsonPosts as any).default;
+  
   posts: PostData[] = [];
   column1: PostData[] = [];
   column2: PostData[] = [];
@@ -82,7 +82,7 @@ export class SharePage implements OnInit {
       this.newComment = '';
 
       // update localStorage with whole json
-      var objIndex = this.posts.findIndex(obj => obj.src == this.currentPost.src); 
+      var objIndex = this.posts.findIndex(obj => obj.src == this.currentPost.src);
       this.posts[objIndex].comments = this.currentPost.comments;
       localStorage.setItem('posts', JSON.stringify(this.posts));
 
@@ -105,7 +105,7 @@ export class SharePage implements OnInit {
       reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
         this.createdPost.src = event.target?.result as string;
 
-        
+
         console.log(this.createdPost.src);
       }
     }

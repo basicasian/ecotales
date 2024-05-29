@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaintingData } from '../data/data-painting';
 import { SubPaintingData } from '../data/data-subpainting';
+import { PostData } from '../data/data-post';
+import * as jsonPosts from '../../assets/json/posts.json';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-create-paint',
@@ -11,7 +14,7 @@ export class CreatePaintPage implements OnInit {
 
   paintings: PaintingData[] = [
     {
-      "id": "1",
+      "id": "0",
       "subpaintings": [
         {
           "src": "../../assets/images/create-write2.webp", "editable": false
@@ -41,7 +44,69 @@ export class CreatePaintPage implements OnInit {
           "src": "../../assets/images/create-write2.webp", "editable": false
         }
       ]
-    },
+    }, {
+      "id": "1",
+      "subpaintings": [
+        {
+          "src": "../../assets/images/orangutan.jpg", "editable": false
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "../../assets/images/panda.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/elephant.jpg", "editable": false
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "../../assets/images/lion.jpg", "editable": false
+        },
+        {
+          "src": "../../assets/images/tiger.jpg", "editable": false
+        }
+      ]
+    }, {
+        "id": "2",
+        "subpaintings": [
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          },
+          {
+            "src": "", "editable": true
+          }
+        ]
+      },
   ]
 
   painting: PaintingData = {
@@ -52,20 +117,37 @@ export class CreatePaintPage implements OnInit {
   row1: SubPaintingData[] = [];
   row2: SubPaintingData[] = [];
   row3: SubPaintingData[] = [];
+
   currentSrc: number = 0;
-  currentOpacity: number = 1;
+  disabledOpacity: number = 1;
 
   test: string = "";
 
+  posts: PostData[] = [];
+  createdPost: PostData = {
+    src: '',
+    title: '',
+    text: '',
+    comments: []
+  };
 
   constructor() { }
 
   ngOnInit() {
 
-    this.painting = this.paintings[0];
-    this.test = this.painting.subpaintings[0].src;
+    // get random painting
+    this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
 
     this.splitRows();
+
+    const storedPosts = localStorage.getItem('posts');
+    if (storedPosts) {
+      this.posts = JSON.parse(storedPosts);
+    } else {
+      this.posts = (jsonPosts as any).default;
+    }
+
+
   }
 
   splitRows() {
@@ -100,19 +182,27 @@ export class CreatePaintPage implements OnInit {
         this.painting.subpaintings[this.currentSrc].src = event.target?.result as string;
       }
     }
-    this.splitRows();
 
-    this.currentOpacity = 0.5;
+    this.splitRows();
+    this.disabledOpacity = 0.5;
   }
 
 
   addPart() {
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
+
       this.test = image;
 
+      console.log(this.test)
+      this.createdPost = {
+        src: image,
+        title: 'NEW',
+        text: 'new',
+        comments: []
+      };
     })
-  }
 
+  }
 
   async generateNewImage(imageUrls: string[]): Promise<string> {
     // load images
@@ -137,9 +227,26 @@ export class CreatePaintPage implements OnInit {
         (index % 3) * imageWidth,
         Math.floor(index / 3) * imageHeight
       ];
-      context?.drawImage(image, x, y);
+      // images get scaled to first image
+      context?.drawImage(image, x, y, imageWidth, imageHeight);
     });
+
+    // Convert canvas to base64 data URL
+    const imageDataUrl = canvas.toDataURL();
+
+    // Create an anchor element with download attribute
+    /*
+    const link = document.createElement('a');
+    link.href = imageDataUrl;
+    link.download = 'test'; // Set the filename
+    link.click(); // Simulate a click to trigger download
+*/
+
+    //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+    //window.location.href=image; // it will save locally
+
     return canvas.toDataURL();
+
   }
 
 
