@@ -12,7 +12,7 @@ import { DataService } from '../data.service';
 })
 export class SharePage implements OnInit {
   @ViewChild(IonContent) content!: IonContent;
-  
+
   posts: PostData[] = [];
   column1: PostData[] = [];
   column2: PostData[] = [];
@@ -47,11 +47,16 @@ export class SharePage implements OnInit {
       this.posts = (jsonPosts as any).default;
     }
 
-    this.splitColumns();
-
-    this.dataservice.data.forEach(data => console.log(data));
-
+    this.dataservice.getData().subscribe((result) => {
+      console.log("data.src: " + result.src);
+      this.createdPost = result;
+      this.posts.unshift(this.createdPost);
+      localStorage.setItem('posts', JSON.stringify(this.posts));
+      this.splitColumns();
+    });
   }
+
+
 
   splitColumns() {
     this.column1 = [];

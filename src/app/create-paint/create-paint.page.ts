@@ -77,37 +77,37 @@ export class CreatePaintPage implements OnInit {
         }
       ]
     }, {
-        "id": "2",
-        "subpaintings": [
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          },
-          {
-            "src": "", "editable": true
-          }
-        ]
-      },
+      "id": "2",
+      "subpaintings": [
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        },
+        {
+          "src": "", "editable": true
+        }
+      ]
+    },
   ]
 
   painting: PaintingData = {
@@ -132,7 +132,7 @@ export class CreatePaintPage implements OnInit {
     comments: []
   };
 
-  constructor(private router: Router, private dataservice: DataService){
+  constructor(private router: Router, private dataservice: DataService) {
   }
 
   ngOnInit() {
@@ -192,30 +192,25 @@ export class CreatePaintPage implements OnInit {
 
   addPart() {
 
-    /*
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
-      this.test = image;
-
-      console.log(this.test)
+      console.log("image:" + image)
       this.createdPost = {
         src: image,
         title: 'NEW',
         text: 'new',
         comments: []
       };
+
+      console.log("createdPost:" + this.createdPost);
+      this.dataservice.sendData(this.createdPost);
     })
-
-    for (let i = 0; i < this.painting.subpaintings.length; i++) {
-      if (this.painting.subpaintings[i].src == '') {
-        return;
-      } 
-    }*/
-
-    this.dataservice.sendData("test");
     this.goToPage('share');
 
   }
+
+
+
 
   async generateNewImage(imageUrls: string[]): Promise<string> {
     // load images
@@ -245,7 +240,8 @@ export class CreatePaintPage implements OnInit {
     });
 
     // Convert canvas to base64 data URL
-    const imageDataUrl = canvas.toDataURL();
+    const imageDataUrl = canvas.toDataURL("image/webp", 0.01);
+
 
     // Create an anchor element with download attribute
     /*
@@ -258,11 +254,11 @@ export class CreatePaintPage implements OnInit {
     //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     //window.location.href=image; // it will save locally
 
-    return canvas.toDataURL();
+    return imageDataUrl;
   }
 
-  
-  goToPage(pageName:string){
+
+  goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
   }
 
