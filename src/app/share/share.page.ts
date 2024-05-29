@@ -51,6 +51,7 @@ export class SharePage implements OnInit {
       console.log("data.src: " + result.src);
       this.createdPost = result;
       this.posts.unshift(this.createdPost);
+      localStorage.clear();
       localStorage.setItem('posts', JSON.stringify(this.posts));
       this.splitColumns();
     });

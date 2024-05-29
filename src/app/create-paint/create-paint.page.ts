@@ -122,9 +122,6 @@ export class CreatePaintPage implements OnInit {
   currentSrc: number = 0;
   disabledOpacity: number = 1;
 
-  test: string = "";
-
-  posts: PostData[] = [];
   createdPost: PostData = {
     src: '',
     title: '',
@@ -141,14 +138,6 @@ export class CreatePaintPage implements OnInit {
     this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
 
     this.splitRows();
-
-    const storedPosts = localStorage.getItem('posts');
-    if (storedPosts) {
-      this.posts = JSON.parse(storedPosts);
-    } else {
-      this.posts = (jsonPosts as any).default;
-    }
-
 
   }
 
@@ -194,7 +183,6 @@ export class CreatePaintPage implements OnInit {
 
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
-      console.log("image:" + image)
       this.createdPost = {
         src: image,
         title: 'NEW',
@@ -202,14 +190,14 @@ export class CreatePaintPage implements OnInit {
         comments: []
       };
 
-      console.log("createdPost:" + this.createdPost);
       this.dataservice.sendData(this.createdPost);
     })
-    this.goToPage('share');
 
+
+    //this.goToPage('share');
+    window.location.reload();
+    
   }
-
-
 
 
   async generateNewImage(imageUrls: string[]): Promise<string> {
@@ -240,19 +228,7 @@ export class CreatePaintPage implements OnInit {
     });
 
     // Convert canvas to base64 data URL
-    const imageDataUrl = canvas.toDataURL("image/webp", 0.01);
-
-
-    // Create an anchor element with download attribute
-    /*
-    const link = document.createElement('a');
-    link.href = imageDataUrl;
-    link.download = 'test'; // Set the filename
-    link.click(); // Simulate a click to trigger download
-*/
-
-    //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-    //window.location.href=image; // it will save locally
+    const imageDataUrl = canvas.toDataURL("image/webp", 0.005);
 
     return imageDataUrl;
   }
