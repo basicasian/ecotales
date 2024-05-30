@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaintingData } from '../data/data-painting';
 import { SubPaintingData } from '../data/data-subpainting';
 import { PostData } from '../data/data-post';
-import * as jsonPosts from '../../assets/json/posts.json';
+import * as jsonPosts from '../../assets/json/paintings.json';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
@@ -13,105 +13,7 @@ import { DataService } from '../data.service';
 })
 export class CreatePaintPage implements OnInit {
 
-  paintings: PaintingData[] = [
-    {
-      "subpaintings": [
-        {
-          "src": "../../assets/images/create1/create1-1.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-2.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-3.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-4.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-5.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-6.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-7.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/create1/create1-8.jpg", "editable": false
-        },
-        {
-          "src": "", "editable": true
-        }
-      ],
-      "title": "Welt der Wunder",
-      "text": "With this collaboration I wanted start a prompt about how the line between nature and animals are not really defined. Animals are a part of nature and so are we - humans. That is why we have to be more responsible of our environment!"
-    }, {
-      "subpaintings": [
-        {
-          "src": "../../assets/images/orangutan.jpg", "editable": false
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "../../assets/images/panda.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/elephant.jpg", "editable": false
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "../../assets/images/lion.jpg", "editable": false
-        },
-        {
-          "src": "../../assets/images/tiger.jpg", "editable": false
-        }
-      ],
-      "title": "chinese style animals",
-      "text": "i tried to paint animals in traditional chinese style.. hope this prompt gives other a spark of inspiration! i wonder what the others are going to add?"
-    }, {
-      "subpaintings": [
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        },
-        {
-          "src": "", "editable": true
-        }
-      ],
-      "title": "",
-      "text": ""
-    },
-  ]
+  paintings: PaintingData[] = []
 
   painting: PaintingData = {
     subpaintings: [],
@@ -139,8 +41,16 @@ export class CreatePaintPage implements OnInit {
 
   ngOnInit() {
 
-    console.log("check")
+    const storedPosts = localStorage.getItem('paintings');
+    if (storedPosts) {
+      this.paintings = JSON.parse(storedPosts);
+    } else {
+      this.paintings = (jsonPosts as any).default;
+    }
+
     this.initPage();
+
+
   }
 
   splitRows() {
@@ -258,9 +168,16 @@ export class CreatePaintPage implements OnInit {
     } else {
       this.paintingReady = false;
     }
-
-    console.log(counter)
-
     return this.paintingReady;
+  }
+
+  contribute() {
+    
+    this.paintings.unshift(this.painting);
+
+    // update localStorage with whole json
+    localStorage.setItem('paintings', JSON.stringify(this.paintings));
+
+    this.reloadPage();
   }
 }

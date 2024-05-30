@@ -64,10 +64,8 @@ export class SharePage implements OnInit {
         localStorage.clear();
         localStorage.setItem('posts', JSON.stringify(this.posts));
 
-
         this.resetCreatedPost();
       }
-
 
       this.splitColumns();
     });
