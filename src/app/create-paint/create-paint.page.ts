@@ -21,9 +21,6 @@ export class CreatePaintPage implements OnInit {
     text: ""
   }
   numberOfSubpaintings: number = 0;
-  status: string = "";
-  //paintingReady: boolean = false;
-  //paintingNew: boolean = false;
   indexPainting: number = 0;
 
   row1: SubPaintingData[] = [];
@@ -87,6 +84,8 @@ export class CreatePaintPage implements OnInit {
 
       reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
 
+        console.log("current: "+this.currentSrc)
+        console.log("previous: "+this.previousSrc)
         if (this.hasContributed == true) {
           this.painting.subpaintings[this.previousSrc].src = "";
         } else {
@@ -156,7 +155,7 @@ export class CreatePaintPage implements OnInit {
   initPage() {
     // get random painting
     var random = Math.floor(Math.random() * this.paintings.length);
-    this.painting = this.paintings[1];
+    this.painting = this.paintings[random];
     this.indexPainting = random;
 
     this.createdPost.title = this.painting.title;

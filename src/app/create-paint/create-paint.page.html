@@ -23,7 +23,7 @@
       <ion-col *ngFor="let subpainting of row; let i = index">
 
         <img class="image-card" [ngStyle]="{'opacity': disabledOpacity}"
-          *ngIf="subpainting.editable != true && subpainting.src != ''" [src]="subpainting.src" />
+          *ngIf="subpainting.editable == false && subpainting.src != ''" [src]="subpainting.src" />
 
         <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
           [src]="subpainting.src" (click)="triggerClick(i, j)" />

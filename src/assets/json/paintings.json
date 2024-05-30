@@ -61,7 +61,7 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "../../assets/images/create1/create1-6.jpg",
@@ -77,7 +77,7 @@
       },
       {
         "src": "../../assets/images/create1/create1-9.jpg",
-        "editable": true
+        "editable": false
       }
     ],
     "title": "Welt der Wunder",
@@ -87,7 +87,7 @@
     "subpaintings": [
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "../../assets/images/create1/create1-2.jpg",
@@ -95,19 +95,19 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "../../assets/images/create1/create1-7.jpg",
@@ -115,11 +115,11 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "../../assets/images/create1/create4.jpg",
-        "editable": true
+        "editable": false
       }
     ],
     "title": "animale naturale",
@@ -161,7 +161,7 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       }
     ],
     "title": "chinese style animals",
@@ -187,11 +187,7 @@
       },
       {
         "src": "",
-        "editable": false
-      },
-      {
-        "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
@@ -199,7 +195,11 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
       },
       {
         "src": "../../assets/images/create3/panda_chinese2.webp",
@@ -213,7 +213,7 @@
     "subpaintings": [
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
@@ -233,7 +233,7 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
@@ -241,11 +241,11 @@
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       },
       {
         "src": "",
-        "editable": false
+        "editable": true
       }
     ],
     "title": "The artwork and the artist",
