@@ -5,7 +5,7 @@ import { CreatePage } from './create/create.page';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./start/start.module').then( m => m.StartPageModule)
   },
   {
     path: 'start',
@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
-  },  {
+  },
+  {
     path: 'create-paint',
     loadChildren: () => import('./create-paint/create-paint.module').then( m => m.CreatePaintPageModule)
   },
