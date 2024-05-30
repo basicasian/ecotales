@@ -47,8 +47,6 @@ export class CreatePaintPage implements OnInit {
 
   ngOnInit() {
     const storedPaintings = localStorage.getItem('paintings');
-
-    console.log(storedPaintings);
     if (storedPaintings) {
       this.paintings = JSON.parse(storedPaintings);
     } else {
@@ -104,7 +102,38 @@ export class CreatePaintPage implements OnInit {
     this.checkNumberOfSubpaintings();
   }
 
+  checkNumberOfSubpaintings() {
+    var counter = 0;
+    for (let i = 0; i < this.painting.subpaintings.length; i++) {
+      if (this.painting.subpaintings[i].src != "") {
+        counter++;
+      }
+    }
+    this.numberOfSubpaintings =  counter;
+    return counter;
+  }
 
+  contribute() {
+
+    if (this.disabledOpacity == 0.5) {
+
+      // update localStorage with whole json
+      this.paintings[this.indexPainting] = this.painting;
+      localStorage.setItem('paintings', JSON.stringify(this.paintings));
+
+      this.reloadPage();
+    }
+  }
+
+  start() {
+    if (this.createdPost.title != '' && this.createdPost.text != '' && this.disabledOpacity == 0.5) {
+      this.painting.title = this.createdPost.title;
+      this.painting.text = this.createdPost.text;
+
+      this.contribute();
+    }
+  }
+  
   post() {
 
     // update localStorage with whole json
@@ -124,7 +153,27 @@ export class CreatePaintPage implements OnInit {
     localStorage.setItem('paintings', JSON.stringify(this.paintings));
   }
 
+  initPage() {
+    // get random painting
+    var random = Math.floor(Math.random() * this.paintings.length);
+    this.painting = this.paintings[1];
+    this.indexPainting = random;
 
+    this.createdPost.title = this.painting.title;
+    this.createdPost.text = this.painting.text;
+
+    this.hasContributed = false;
+    this.splitRows();
+  }
+  
+  goToPage(pageName: string) {
+    this.router.navigate([`${pageName}`]);
+  }
+
+  reloadPage() {
+    window.location.reload();
+  }
+  
   async generateNewImage(imageUrls: string[]): Promise<string> {
     // load images
     const images: HTMLImageElement[] = await Promise.all(
@@ -158,57 +207,4 @@ export class CreatePaintPage implements OnInit {
     return imageDataUrl;
   }
 
-
-  goToPage(pageName: string) {
-    this.router.navigate([`${pageName}`]);
-  }
-
-  reloadPage() {
-    window.location.reload();
-  }
-
-  initPage() {
-    // get random painting
-    var random = Math.floor(Math.random() * this.paintings.length);
-    this.painting = this.paintings[random];
-    this.indexPainting = random;
-
-    this.createdPost.title = this.painting.title;
-    this.createdPost.text = this.painting.text;
-
-    this.hasContributed = false;
-    this.splitRows();
-  }
-
-  checkNumberOfSubpaintings() {
-    var counter = 0;
-    for (let i = 0; i < this.painting.subpaintings.length; i++) {
-      if (this.painting.subpaintings[i].src != "") {
-        counter++;
-      }
-    }
-    this.numberOfSubpaintings =  counter;
-    return counter;
-  }
-
-  contribute() {
-
-    if (this.disabledOpacity == 0.5) {
-
-      // update localStorage with whole json
-      this.paintings[this.indexPainting] = this.painting;
-      localStorage.setItem('paintings', JSON.stringify(this.paintings));
-
-      this.reloadPage();
-    }
-  }
-
-  start() {
-    if (this.createdPost.title != '' && this.createdPost.text != '' && this.disabledOpacity == 0.5) {
-      this.painting.title = this.createdPost.title;
-      this.painting.text = this.createdPost.text;
-
-      this.contribute();
-    }
-  }
 }
