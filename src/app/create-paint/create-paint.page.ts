@@ -20,7 +20,10 @@ export class CreatePaintPage implements OnInit {
     title: "",
     text: ""
   }
-  paintingReady: boolean = false;
+  numberOfSubpaintings: number = 0;
+  status: string = "";
+  //paintingReady: boolean = false;
+  //paintingNew: boolean = false;
   indexPainting: number = 0;
 
   row1: SubPaintingData[] = [];
@@ -28,7 +31,9 @@ export class CreatePaintPage implements OnInit {
   row3: SubPaintingData[] = [];
 
   currentSrc: number = 0;
+  previousSrc: number = 0;
   disabledOpacity: number = 1;
+  hasContributed: boolean = false; 
 
   createdPost: PostData = {
     src: '',
@@ -49,7 +54,8 @@ export class CreatePaintPage implements OnInit {
     } else {
       this.paintings = (jsonPosts as any).default;
     }
-
+    
+    this.paintings.push((jsonPosts as any).default[(jsonPosts as any).default.length - 1])
     this.initPage();
   }
 
@@ -82,13 +88,20 @@ export class CreatePaintPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
+
+        if (this.hasContributed == true) {
+          this.painting.subpaintings[this.previousSrc].src = "";
+        } else {
+          this.hasContributed = true;
+        }
         this.painting.subpaintings[this.currentSrc].src = event.target?.result as string;
+        this.previousSrc = this.currentSrc;
       }
     }
 
     this.splitRows();
     this.disabledOpacity = 0.5;
-    this.checkPaintingDone();
+    this.checkNumberOfSubpaintings();
   }
 
 
@@ -140,7 +153,7 @@ export class CreatePaintPage implements OnInit {
     });
 
     // Convert canvas to base64 data URL
-    const imageDataUrl = canvas.toDataURL("image/webp", 0.005);
+    const imageDataUrl = canvas.toDataURL("image/webp", 0.01);
 
     return imageDataUrl;
   }
@@ -162,23 +175,20 @@ export class CreatePaintPage implements OnInit {
 
     this.createdPost.title = this.painting.title;
     this.createdPost.text = this.painting.text;
+
+    this.hasContributed = false;
     this.splitRows();
   }
 
-  checkPaintingDone() {
+  checkNumberOfSubpaintings() {
     var counter = 0;
     for (let i = 0; i < this.painting.subpaintings.length; i++) {
       if (this.painting.subpaintings[i].src != "") {
         counter++;
       }
     }
-
-    if (counter == 9) {
-      this.paintingReady = true;
-    } else {
-      this.paintingReady = false;
-    }
-    return this.paintingReady;
+    this.numberOfSubpaintings =  counter;
+    return counter;
   }
 
   contribute() {
@@ -191,6 +201,14 @@ export class CreatePaintPage implements OnInit {
 
       this.reloadPage();
     }
+  }
 
+  start() {
+    if (this.createdPost.title != '' && this.createdPost.text != '' && this.disabledOpacity == 0.5) {
+      this.painting.title = this.createdPost.title;
+      this.painting.text = this.createdPost.text;
+
+      this.contribute();
+    }
   }
 }

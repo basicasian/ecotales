@@ -61,5 +61,6 @@
 
 </ion-content>
 
-<ion-button *ngIf="this.checkPaintingDone() == true" expand="block" (click)="post();">Post on Share</ion-button>
-<ion-button *ngIf="this.checkPaintingDone() == false" expand="block" (click)="contribute()">Contribute</ion-button>
+<ion-button *ngIf="this.checkNumberOfSubpaintings() == 9" expand="block" (click)="post();">Post on Share</ion-button>
+<ion-button *ngIf="this.checkNumberOfSubpaintings() != 1 && this.checkNumberOfSubpaintings() != 0 && this.checkNumberOfSubpaintings() != 9" expand="block" (click)="contribute()">Contribute</ion-button>
+<ion-button *ngIf="this.checkNumberOfSubpaintings() == 1 || this.checkNumberOfSubpaintings() == 0" expand="block" (click)="start()">Start a Story</ion-button>
