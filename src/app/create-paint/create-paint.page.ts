@@ -55,7 +55,7 @@ export class CreatePaintPage implements OnInit {
       this.paintings = (jsonPosts as any).default;
     }
     
-    this.paintings.push((jsonPosts as any).default[(jsonPosts as any).default.length - 1])
+    this.paintings.push((jsonPosts as any).default[0])
     this.initPage();
   }
 
