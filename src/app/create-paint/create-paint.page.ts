@@ -44,8 +44,8 @@ export class CreatePaintPage implements OnInit {
           "src": "", "editable": true
         }
       ],
-      "title": "Natura Animale",
-      "text": "With this collaboration I wanted express how the line between nature and animals are not really defined..\nAnimals are part of nature and so are we - which is why we should take even more care about their environment.\nI totally agree with you! I added some water elements and tried to adapt to your style :)"
+      "title": "Welt der Wunder",
+      "text": "With this collaboration I wanted start a prompt about how the line between nature and animals are not really defined. Animals are a part of nature and so are we - humans. That is why we have to be more responsible of our environment!"
     }, {
       "subpaintings": [
         {
@@ -77,7 +77,7 @@ export class CreatePaintPage implements OnInit {
         }
       ],
       "title": "chinese style animals",
-      "text": "i tried to paint animals in traditional chinese style.. i wonder what the others are going to add?\nI love love this concept! Hope you like it!"
+      "text": "i tried to paint animals in traditional chinese style.. hope this prompt gives other a spark of inspiration! i wonder what the others are going to add?"
     }, {
       "subpaintings": [
         {
@@ -141,6 +141,7 @@ export class CreatePaintPage implements OnInit {
     // get random painting
     this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
     this.createdPost.title = this.painting.title;
+    this.createdPost.text = this.painting.text;
     this.splitRows();
   }
 
@@ -190,8 +191,9 @@ export class CreatePaintPage implements OnInit {
       this.dataservice.sendData(this.createdPost);
     })
 
-    //this.goToPage('share');
-    window.location.reload();
+    this.goToPage('share');
+    //window.location.reload(); // fix this
+
   }
 
 

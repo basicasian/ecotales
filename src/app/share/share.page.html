@@ -21,7 +21,7 @@
       <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
 
         <ion-card *ngFor="let post of column; let i = index" expand="block" [ngClass]="'fadeIn fadeIn'+(i+1)"
-          (click)="setModalOpen(true, 'view', post)" [ngStyle]="{'animation-delay': (i+1)*0.5 + 's'}">
+          (click)="setModalOpen(true, 'view', post)" [ngStyle]="{'animation-delay': (i+1)*0.2 + 's'}">
           <img [src]="post.src" *ngIf="post.src != ''"/>
           <ion-card-header *ngIf="post.title != ''">
             <ion-card-subtitle> {{post.title}} </ion-card-subtitle>

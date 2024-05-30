@@ -31,6 +31,13 @@ export class SharePage implements OnInit {
     comments: []
   };
 
+  createdStoryPost: PostData = {
+    src: '',
+    title: '',
+    text: '',
+    comments: []
+  };
+
   isViewModalOpen = false;
   isCreateModalOpen = false;
   newComment: string = '';
@@ -47,14 +54,23 @@ export class SharePage implements OnInit {
       this.posts = (jsonPosts as any).default;
     }
 
-    this.dataservice.getData().subscribe((result) => {
-      console.log("data.src: " + result.src);
-      this.createdPost = result;
-      this.posts.unshift(this.createdPost);
-      localStorage.clear();
-      localStorage.setItem('posts', JSON.stringify(this.posts));
+    this.dataservice.data.subscribe((result) => {
+
+      if (result.src != '') {
+        console.log("result.src: " + result.src);
+        this.createdPost = result;
+        this.posts.unshift(this.createdPost);
+        localStorage.clear();
+        localStorage.setItem('posts', JSON.stringify(this.posts));
+
+
+        this.resetCreatedPost();
+      }
+
+
       this.splitColumns();
     });
+
   }
 
   splitColumns() {
@@ -68,7 +84,6 @@ export class SharePage implements OnInit {
       }
     }
   }
-
 
   setModalOpen(isOpen: boolean, type: string, data: undefined | PostData) {
     if (type === "create") {
