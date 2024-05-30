@@ -21,6 +21,7 @@ export class CreatePaintPage implements OnInit {
     text: ""
   }
   paintingReady: boolean = false;
+  indexPainting: number = 0;
 
   row1: SubPaintingData[] = [];
   row2: SubPaintingData[] = [];
@@ -40,17 +41,16 @@ export class CreatePaintPage implements OnInit {
   }
 
   ngOnInit() {
-
-    const storedPosts = localStorage.getItem('paintings');
-    if (storedPosts) {
-      this.paintings = JSON.parse(storedPosts);
+    const storedPaintings = localStorage.getItem('paintings');
+  
+    console.log(storedPaintings);
+    if (storedPaintings) {
+      this.paintings = JSON.parse(storedPaintings);
     } else {
       this.paintings = (jsonPosts as any).default;
     }
 
     this.initPage();
-
-
   }
 
   splitRows() {
@@ -94,14 +94,28 @@ export class CreatePaintPage implements OnInit {
 
   post() {
 
+    // update localStorage with whole json
+    this.paintings[this.indexPainting] = this.painting;
+    localStorage.setItem('paintings', JSON.stringify(this.paintings));
+
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
       this.createdPost.src = image;
       this.dataservice.sendData(this.createdPost);
+      this.goToPage('share'); // have to go to share page, otherwise post dont work
+
     })
 
-    this.goToPage('share');
-    //window.location.reload(); // fix this
+  
+    
+
+    /*
+    const index = this.paintings.indexOf(this.painting, 0);
+    if (index > -1) {
+      this.paintings.splice(index, 1);
+    }
+    // update localStorage with whole json
+    localStorage.setItem('paintings', JSON.stringify(this.paintings));*/
   }
 
 
@@ -143,13 +157,16 @@ export class CreatePaintPage implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
-  reloadPage() { 
+  reloadPage() {
     window.location.reload();
   }
 
   initPage() {
     // get random painting
-    this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
+    var random = Math.floor(Math.random() * this.paintings.length);
+    this.painting = this.paintings[random];
+    this.indexPainting = random;
+
     this.createdPost.title = this.painting.title;
     this.createdPost.text = this.painting.text;
     this.splitRows();
@@ -159,7 +176,7 @@ export class CreatePaintPage implements OnInit {
     var counter = 0;
     for (let i = 0; i < this.painting.subpaintings.length; i++) {
       if (this.painting.subpaintings[i].src != "") {
-        counter++;  
+        counter++;
       }
     }
 
@@ -172,12 +189,15 @@ export class CreatePaintPage implements OnInit {
   }
 
   contribute() {
-    
-    this.paintings.unshift(this.painting);
 
-    // update localStorage with whole json
-    localStorage.setItem('paintings', JSON.stringify(this.paintings));
+    if (this.disabledOpacity == 0.5) {
 
-    this.reloadPage();
+      // update localStorage with whole json
+      this.paintings[this.indexPainting] = this.painting;
+      localStorage.setItem('paintings', JSON.stringify(this.paintings));
+  
+      this.reloadPage();
+    }
+
   }
 }

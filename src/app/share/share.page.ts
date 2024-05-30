@@ -47,7 +47,6 @@ export class SharePage implements OnInit {
   }
 
   ngOnInit() {
-
     const storedPosts = localStorage.getItem('posts');
     if (storedPosts) {
       this.posts = JSON.parse(storedPosts);
@@ -58,10 +57,8 @@ export class SharePage implements OnInit {
     this.dataservice.data.subscribe((result) => {
 
       if (result.src != '') {
-        console.log("result.src: " + result.src);
         this.createdPost = result;
         this.posts.unshift(this.createdPost);
-        localStorage.clear();
         localStorage.setItem('posts', JSON.stringify(this.posts));
 
         this.resetCreatedPost();
@@ -106,8 +103,6 @@ export class SharePage implements OnInit {
       var objIndex = this.posts.findIndex(obj => obj.src == this.currentPost.src);
       this.posts[objIndex].comments = this.currentPost.comments;
       localStorage.setItem('posts', JSON.stringify(this.posts));
-
-      console.log(this.posts);
     }
 
   }
@@ -125,9 +120,6 @@ export class SharePage implements OnInit {
 
       reader.onload = (event: ProgressEvent<FileReader>) => { // called once readAsDataURL is completed
         this.createdPost.src = event.target?.result as string;
-
-
-        console.log(this.createdPost.src);
       }
     }
   }
