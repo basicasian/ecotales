@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import * as jsonPosts from '../../assets/json/posts.json';
 import { DataService } from '../data.service';
+import { CreatePaintPage } from '../create-paint/create-paint.page';
 
 @Component({
   selector: 'app-share',
@@ -157,6 +158,10 @@ export class SharePage implements OnInit {
     this.setModalOpen(false, 'create', undefined);
 
     this.content.scrollToTop(0);
+  }
+
+  goToPage(pageName: string) {
+    this.router.navigate([`${pageName}`]);
   }
 
 }

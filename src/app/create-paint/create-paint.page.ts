@@ -138,11 +138,8 @@ export class CreatePaintPage implements OnInit {
 
   ngOnInit() {
 
-    // get random painting
-    this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
-    this.createdPost.title = this.painting.title;
-    this.createdPost.text = this.painting.text;
-    this.splitRows();
+    console.log("check")
+    this.initPage();
   }
 
   splitRows() {
@@ -193,7 +190,6 @@ export class CreatePaintPage implements OnInit {
 
     this.goToPage('share');
     //window.location.reload(); // fix this
-
   }
 
 
@@ -235,9 +231,16 @@ export class CreatePaintPage implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
-
-  reload() {
+  reloadPage() { 
     window.location.reload();
+  }
+
+  public initPage() {
+    // get random painting
+    this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
+    this.createdPost.title = this.painting.title;
+    this.createdPost.text = this.painting.text;
+    this.splitRows();
   }
 
 }
