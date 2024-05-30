@@ -118,6 +118,7 @@ export class CreatePaintPage implements OnInit {
     title: "",
     text: ""
   }
+  paintingReady: boolean = false;
 
   row1: SubPaintingData[] = [];
   row2: SubPaintingData[] = [];
@@ -177,10 +178,11 @@ export class CreatePaintPage implements OnInit {
 
     this.splitRows();
     this.disabledOpacity = 0.5;
+    this.checkPaintingDone();
   }
 
 
-  addPart() {
+  post() {
 
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
@@ -235,7 +237,7 @@ export class CreatePaintPage implements OnInit {
     window.location.reload();
   }
 
-  public initPage() {
+  initPage() {
     // get random painting
     this.painting = this.paintings[Math.floor(Math.random() * this.paintings.length)];
     this.createdPost.title = this.painting.title;
@@ -243,4 +245,22 @@ export class CreatePaintPage implements OnInit {
     this.splitRows();
   }
 
+  checkPaintingDone() {
+    var counter = 0;
+    for (let i = 0; i < this.painting.subpaintings.length; i++) {
+      if (this.painting.subpaintings[i].src != "") {
+        counter++;  
+      }
+    }
+
+    if (counter == 9) {
+      this.paintingReady = true;
+    } else {
+      this.paintingReady = false;
+    }
+
+    console.log(counter)
+
+    return this.paintingReady;
+  }
 }

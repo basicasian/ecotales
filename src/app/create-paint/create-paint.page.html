@@ -61,4 +61,5 @@
 
 </ion-content>
 
-<ion-button expand="block" (click)="addPart();">Contribute</ion-button>
+<ion-button *ngIf="this.checkPaintingDone() == true" expand="block" (click)="post();">Post on Share</ion-button>
+<ion-button *ngIf="this.checkPaintingDone() == false" expand="block" (click)="reloadPage()">Contribute</ion-button>
