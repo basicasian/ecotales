@@ -42,7 +42,7 @@ export class CreatePaintPage implements OnInit {
 
   ngOnInit() {
     const storedPaintings = localStorage.getItem('paintings');
-  
+
     console.log(storedPaintings);
     if (storedPaintings) {
       this.paintings = JSON.parse(storedPaintings);
@@ -95,8 +95,8 @@ export class CreatePaintPage implements OnInit {
   post() {
 
     // update localStorage with whole json
-    this.paintings[this.indexPainting] = this.painting;
-    localStorage.setItem('paintings', JSON.stringify(this.paintings));
+    // this.paintings[this.indexPainting] = this.painting;
+    // localStorage.setItem('paintings', JSON.stringify(this.paintings));
 
     this.generateNewImage(this.painting.subpaintings.map(x => x.src)).then((image) => {
 
@@ -106,16 +106,9 @@ export class CreatePaintPage implements OnInit {
 
     })
 
-  
-    
-
-    /*
-    const index = this.paintings.indexOf(this.painting, 0);
-    if (index > -1) {
-      this.paintings.splice(index, 1);
-    }
     // update localStorage with whole json
-    localStorage.setItem('paintings', JSON.stringify(this.paintings));*/
+    this.paintings.splice(this.indexPainting, 1);
+    localStorage.setItem('paintings', JSON.stringify(this.paintings));
   }
 
 
@@ -195,7 +188,7 @@ export class CreatePaintPage implements OnInit {
       // update localStorage with whole json
       this.paintings[this.indexPainting] = this.painting;
       localStorage.setItem('paintings', JSON.stringify(this.paintings));
-  
+
       this.reloadPage();
     }
 
