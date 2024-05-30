@@ -48,11 +48,11 @@
         "editable": false
       },
       {
-        "src": "",
+        "src": "../../assets/images/create1/create1-2.jpg",
         "editable": false
       },
       {
-        "src": "",
+        "src": "../../assets/images/create1/create1-3.jpg",
         "editable": false
       },
       {
@@ -60,7 +60,7 @@
         "editable": false
       },
       {
-        "src": "../../assets/images/create1/create1-5.jpg",
+        "src": "",
         "editable": false
       },
       {
@@ -68,15 +68,15 @@
         "editable": false
       },
       {
-        "src": "",
+        "src": "../../assets/images/create1/create1-7.jpg",
         "editable": false
       },
       {
-        "src": "",
+        "src": "../../assets/images/create1/create1-8.jpg",
         "editable": false
       },
       {
-        "src": "",
+        "src": "../../assets/images/create1/create1-9.jpg",
         "editable": true
       }
     ],
@@ -118,7 +118,7 @@
         "editable": false
       },
       {
-        "src": "../../assets/images/create1/create1-9.jpg",
+        "src": "../../assets/images/create1/create4.jpg",
         "editable": true
       }
     ],
@@ -250,5 +250,47 @@
     ],
     "title": "The artwork and the artist",
     "text": "When thinking about what to add, I started to realize what we are doing. As artists we often feel useless, but art are just emotions to be told - stories to be told and this is what this painting is about."
+  },
+  {
+    "subpaintings": [
+      {
+        "src": "../../assets/images/create1/lion1-1.jpg",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create1/lion1-4.jpg",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create1/lion1-5.jpg",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create1/lion1-8.jpg",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": false
+      }
+    ],
+    "title": "The mighty lion",
+    "text": "I wanted to make a patchwork grid like collaborative lion painting, that is why I already did the 4x4 grid in my part, hope this pattern continues!"
   }
 ]
