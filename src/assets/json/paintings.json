@@ -128,7 +128,27 @@
   {
     "subpaintings": [
       {
-        "src": "../../assets/images/tiger.jpg",
+        "src": "../../assets/images/create4/tiger.webp",
+        "editable": false
+      },
+      {
+        "src": "../../assets/images/create4/orangutan.webp",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create4/panda.webp",
+        "editable": false
+      },
+      {
+        "src": "../../assets/images/create4/elephant.webp",
         "editable": false
       },
       {
@@ -136,27 +156,7 @@
         "editable": true
       },
       {
-        "src": "",
-        "editable": true
-      },
-      {
-        "src": "",
-        "editable": true
-      },
-      {
-        "src": "../../assets/images/panda.jpg",
-        "editable": false
-      },
-      {
-        "src": "../../assets/images/elephant.jpg",
-        "editable": false
-      },
-      {
-        "src": "",
-        "editable": true
-      },
-      {
-        "src": "../../assets/images/lion.jpg",
+        "src": "../../assets/images/create4/lion.webp",
         "editable": false
       },
       {
@@ -210,6 +210,47 @@
     "text": "The theme of this artwork is .. pandas! I just wanna see pandas in different art styles, but I don't know what else to add. I hope someone can help me finish this artwork!"
   },
   {
+    "subpaintings": [
+      {
+        "src": "../../assets/images/create2/create-write1.webp",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create2/create-write2.webp",
+        "editable": false
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "",
+        "editable": true
+      },
+      {
+        "src": "../../assets/images/create2/create-write3.webp",
+        "editable": false
+      }
+    ],
+    "title": "The story and the writer",
+    "text": "This is a spin-off of the prompt with the painter, and funny enough I got my prompt back two times! I already had some other drafts, which is why I thought I am going to add them here, if I got them again haha"
+  },  {
     "subpaintings": [
       {
         "src": "",

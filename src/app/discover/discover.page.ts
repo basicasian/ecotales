@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscoverData } from '../data/data-discover';
+import * as jsonInfos from '../../assets/json/infos-discover.json';
 
 @Component({
   selector: 'app-discover',
@@ -9,7 +10,7 @@ import { DiscoverData } from '../data/data-discover';
 
 
 export class DiscoverPage implements OnInit {
-  infos: DiscoverData[] = [
+  gptInfos: DiscoverData[] = [
     {
       "id": "panda",
       "src": "../../assets/images/panda.jpg",
@@ -51,10 +52,13 @@ export class DiscoverPage implements OnInit {
       "href": "https://www.worldwildlife.org/species/elephant"
     }
   ];
+  infos: DiscoverData[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.infos = (jsonInfos as any).default;
+
   }
 
 }
