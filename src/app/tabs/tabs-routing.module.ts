@@ -4,6 +4,18 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
+    path: 'start',
+    loadChildren: () => import('../start/start.module').then(m => m.StartPageModule)
+  },
+  {
+    path: 'discover',
+    loadChildren: () => import('../discover/discover.module').then(m => m.DiscoverPageModule)
+  },
+  {
+    path: 'share',
+    loadChildren: () => import('../share/share.module').then(m => m.SharePageModule)
+  },
+  {
     path: 'tabs',
     component: TabsPage,
     children: [
@@ -21,14 +33,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/start',
     pathMatch: 'full'
   }
 ];
@@ -36,4 +48,4 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

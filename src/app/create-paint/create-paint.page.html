@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="uploadImage">
+      <ion-icon name="refresh-outline" (click)="reloadPage()" style="height: 25px;
+      width: 25px; color: #4d8dff; margin-right: 5px;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense" class="fadeIn fadeIn0">
+    <ion-toolbar>
+      <ion-title size="large">create a story</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid style="height:90%" class="fadeIn fadeIn1">
+    <div style="margin-bottom: 15px;">
+      <ion-row *ngFor="let row of [row1, row2, row3], let j = index">
+        <ion-col *ngFor="let subpainting of row; let i = index">
+
+          <img class="image-card" [ngStyle]="{'opacity': disabledOpacity}"
+            *ngIf="subpainting.editable == false && subpainting.src != ''" [src]="subpainting.src" />
+
+          <img class="image-card uploadImage" *ngIf="subpainting.editable == true && subpainting.src != ''"
+            [src]="subpainting.src" (click)="triggerClick(i, j)" />
+
+          <input type="file" id="input_file" accept="image/*" hidden (change)="onSelectFile($event)">
+          <ion-card class="image-card uploadImage" (click)="triggerClick(i, j)" *ngIf="subpainting.src == ''">
+            <ion-icon name="add-circle-outline" style="height: 50px;
+              width: 50px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%)"></ion-icon>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  
+    <ion-chip style="width: 98%;" *ngIf="!this.painting.title">
+      <ion-input *ngIf="!this.painting.title" placeholder="What is the theme of this artwork?" [readonly]="false"
+        [(ngModel)]="createdPost.title"></ion-input>
+    </ion-chip>
+
+    <ion-chip style="width: 98%;" [disabled]="true" *ngIf="this.painting.title">
+      <ion-input [readonly]="true" [(ngModel)]="createdPost.title"></ion-input>
+    </ion-chip>
+
+    <ion-chip style="width: 98%; height: 200px" *ngIf="!this.painting.text">
+      <ion-textarea [autoGrow]="true" *ngIf="!this.painting.text"
+        placeholder="Give others a prompt! Write here about your thoughts and what you want to tell your collaborators."
+        [readonly]="false" [(ngModel)]="createdPost.text"> </ion-textarea>
+    </ion-chip>
+
+    <ion-chip style="width: 98%; height: 200px" [disabled]="true" *ngIf="this.painting.text">
+      {{this.painting.text}}
+    </ion-chip>
+  </ion-grid>
+
+</ion-content>
+
+<ion-button *ngIf="this.checkNumberOfSubpaintings() == 9" expand="block" (click)="post();">Post on Share</ion-button>
+<ion-button
+  *ngIf="this.checkNumberOfSubpaintings() != 1 && this.checkNumberOfSubpaintings() != 0 && this.checkNumberOfSubpaintings() != 9"
+  expand="block" (click)="contribute()">Contribute</ion-button>
+<ion-button *ngIf="this.checkNumberOfSubpaintings() == 1 || this.checkNumberOfSubpaintings() == 0" expand="block"
+  (click)="start()">Start a Story</ion-button>

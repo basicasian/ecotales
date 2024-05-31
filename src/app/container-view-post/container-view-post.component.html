@@ -1,0 +1,35 @@
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{currentPost.title}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <img [src]="currentPost.src" />
+      <p> {{currentPost.text}} </p>
+
+      <ion-chip style="--background: #8888883d" *ngFor="let comment of currentPost.comments">
+        <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
+        <ion-text style="max-width: 90%;">
+          {{comment}}
+        </ion-text>
+      </ion-chip>
+
+    </ion-content>
+
+    <ion-chip style="--background: #8888883d">
+      <ion-chip style="width: 90%; height: 70%;">
+        <ion-input placeholder="Write a comment!" [(ngModel)]="newComment" (keyup.enter)="addComment()"></ion-input>
+      </ion-chip>
+      <ion-icon (click)="addComment()" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+    </ion-chip>
+
+  </ng-template>
+</ion-modal>

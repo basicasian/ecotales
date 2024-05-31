@@ -1,0 +1,52 @@
+ion-title {
+    padding-top: 22px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+
+.uploadImage {
+    cursor: pointer;
+}
+
+.image-card {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    width: 100%;
+}
+
+.disabled {
+    opacity: 100%;
+}
+
+ion-card {
+    border-radius: 5%;
+    margin-inline: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.fadeIn {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+
+    &0 {
+        animation-delay: 0.3s;
+    }
+    &1 {
+        animation-delay: 0.6s;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+ion-activated {
+    height:30%
+}

@@ -1,0 +1,57 @@
+
+ion-title {
+    padding-bottom: 10px;
+    margin-left: 55px;
+}
+
+img {
+    border-radius: 5%;
+    max-width: 80%;
+}
+
+.card {
+    display: flex;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.card p {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    writing-mode: vertical-rl;
+    transform:scale(-1);
+    margin: 15px;
+}
+
+.centered-container {
+    height: 100%;
+    display: grid;
+    align-content: center;
+}
+
+.fadeIn {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+
+    &0 {
+        animation-delay: 0.3s;
+    }
+
+    &1 {
+        animation-delay: 0.6s;
+    }
+
+    &2 {
+        animation-delay: 1.0s;
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

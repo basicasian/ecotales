@@ -1,0 +1,122 @@
+<div id="top"></div>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToPage('home')" default-href="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense" class="fadeIn fadeIn0">
+    <ion-toolbar>
+      <ion-title size="large">share your stories</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <!-- column split dynamically -->
+      <ion-col size="6" size-sm="4" size-lg="2" *ngFor="let column of [column1, column2]">
+
+        <ion-card *ngFor="let post of column; let i = index" expand="block" [ngClass]="'fadeIn fadeIn'+(i+1)"
+          (click)="setModalOpen(true, 'view', post)" [ngStyle]="{'animation-delay': (i+1)*0.2 + 's'}">
+          <img [src]="post.src" *ngIf="post.src != ''"/>
+          <ion-card-header *ngIf="post.title != ''">
+            <ion-card-subtitle> {{post.title}} </ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<!-- view post modal -->
+<ion-modal [isOpen]="isViewModalOpen">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setModalOpen(false, 'view', undefined)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <img [src]="currentPost.src" />
+      <ion-card-title style="padding-top: 14px; font-size: 18px;">{{currentPost.title}}</ion-card-title>
+      <p> {{currentPost.text}} </p>
+
+      <ion-chip style="--background: #8888883d" *ngFor="let comment of currentPost.comments">
+        <ion-icon style="height: 30px; width: 30px;" name="paw"></ion-icon>
+        <ion-text style="max-width: 90%;">
+          {{comment}}
+        </ion-text>
+      </ion-chip>
+
+    </ion-content>
+
+    <ion-chip style="--background: #8888883d">
+      <ion-chip style="width: 90%; height: 70%;">
+        <ion-input placeholder="Write a comment!" [(ngModel)]="newComment" (keyup.enter)="addComment()"></ion-input>
+      </ion-chip>
+      <ion-icon (click)="addComment()" style="height: 40px; width: 40px;" name="chevron-forward-circle"></ion-icon>
+    </ion-chip>
+
+  </ng-template>
+</ion-modal>
+
+<!-- create post modal -->
+<ion-modal [isOpen]="isCreateModalOpen">
+
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setModalOpen(false, 'create', undefined); resetCreatedPost()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <input type="file" id="input_file" accept="image/*" hidden (change)="onSelectFile($event)">
+
+      <ion-card style="width: 95%; height: 40%; margin-bottom: 20px;" (click)="triggerClick()" class="uploadImage">
+        <ion-icon *ngIf="createdPost.src == ''" name="add-circle-outline" style="height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)"></ion-icon>
+        <img *ngIf="createdPost.src != ''" [src]="createdPost.src" />
+      </ion-card>
+
+      <ion-chip style="width: 95%;">
+        <ion-input placeholder="Add a post title" [(ngModel)]="createdPost.title"></ion-input>
+      </ion-chip>
+
+      <ion-chip style="width: 95%; height:40%">
+        <ion-textarea placeholder="Add a post description" [autoGrow]="true" [(ngModel)]="createdPost.text"></ion-textarea>
+      </ion-chip>
+    </ion-content>
+
+    <ion-button expand="block" (click)="addPost();">Post</ion-button>
+
+  </ng-template>
+</ion-modal>
+
+<!-- fab -->
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="add" (click)="setModalOpen(true, 'create', undefined);"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
