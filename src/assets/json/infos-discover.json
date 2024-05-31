@@ -1,42 +1,74 @@
 [
-    {
-      "id": "panda",
-      "src": "https://dailywildlifephoto.nathab.com/photography-guide/wp-content/uploads/2016/10/panda1.jpg",
-      "title": "Pandas",
-      "subtitle": "Learn about the gentle giants",
-      "text": "Discover the fascinating world of pandas, from their 黑白 (heibai - black and white) fur to their love for bamboo. Explore their habitat, threats they face, and how you can help protect these cuddly creatures.",
-      "href": "https://www.worldwildlife.org/species/giant-panda"
-    },
-    {
-      "id": "lion",
-      "src": "https://images.pexels.com/photos/11630690/pexels-photo-11630690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "title": "Lions",
-      "subtitle": "The Kings and Queens of the Savanna",
-      "text": "Reign supreme with the lion! Unravel the secrets of these social cats, their hunting prowess, and the importance of their role in the ecosystem. Learn about the challenges they face and what you can do to ensure their continued roar.",
-      "href": "https://www.worldwildlife.org/species/lion--19"
-    },
-    {
-      "id": "tiger",
-      "src": "https://a-z-animals.com/media/2021/12/tiger-768x401.jpg",
-      "title": "Tigers",
-      "subtitle": "Stripes of Survival",
-      "text": "Explore the power and mystery of the tiger. These majestic big cats are crucial to healthy ecosystems, but face threats like habitat loss. Learn about the different tiger species, their role in nature, and how you can help ensure their survival.",
-      "href": "https://www.worldwildlife.org/species/tiger"
-    },
-    {
-      "id": "orangutan",
-      "src": "https://i1.adis.ws/i/canon/pro-maxime-aliaga-orangutan-project-2_157b897803a64922922c7b50b69a0105?$media-collection-half-dt$",
-      "title": "Orangutans",
-      "subtitle": "Wise Swingers of the Rainforest",
-      "text": "Meet the orangutans, the intelligent masters of the rainforest canopy! Their clever tool use, playful nature, and critically endangered status make them a captivating species. Discover their world, the threats they face from habitat loss, and how you can join the fight to protect these red-haired wonders.",
-      "href": "https://www.worldwildlife.org/species/orangutan"
-    },
-    {
-      "id": "elephant",
-      "src": "https://cdn.mos.cms.futurecdn.net/uiCrUgVCf64TzEdTM8x9aD-1200-80.jpg.webp",
-      "title": "Elephants",
-      "subtitle": "Giants of Memory and Family",
-      "text": "Unveiling the wonder of elephants! These intelligent creatures boast incredible memories, strong social bonds, and play a vital role in their ecosystems. Learn about the different elephant species, the threats they face, and how you can help secure a future for these gentle giants.",
-      "href": "https://www.worldwildlife.org/species/elephant"
-    }
-  ]
+  {
+    "id": "panda",
+    "src": "https://dailywildlifephoto.nathab.com/photography-guide/wp-content/uploads/2016/10/panda1.jpg",
+    "title": "Pandas",
+    "subtitle": "Learn about the gentle giants",
+    "text": "Discover the fascinating world of pandas, from their 黑白 (heibai - black and white) fur to their love for bamboo. Explore their habitat, threats they face, and how you can help protect these cuddly creatures.",
+    "href": "https://www.worldwildlife.org/species/giant-panda"
+  },
+  {
+    "id": "lion",
+    "src": "https://images.pexels.com/photos/11630690/pexels-photo-11630690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "title": "Lions",
+    "subtitle": "The Kings and Queens of the Savanna",
+    "text": "Reign supreme with the lion! Unravel the secrets of these social cats, their hunting prowess, and the importance of their role in the ecosystem. Learn about the challenges they face and what you can do to ensure their continued roar.",
+    "href": "https://www.worldwildlife.org/species/lion--19"
+  },
+  {
+    "id": "tiger",
+    "src": "https://a-z-animals.com/media/2021/12/tiger-768x401.jpg",
+    "title": "Tigers",
+    "subtitle": "Stripes of Survival",
+    "text": "Explore the power and mystery of the tiger. These majestic big cats are crucial to healthy ecosystems, but face threats like habitat loss. Learn about the different tiger species, their role in nature, and how you can help ensure their survival.",
+    "href": "https://www.worldwildlife.org/species/tiger"
+  },
+  {
+    "id": "orangutan",
+    "src": "https://i1.adis.ws/i/canon/pro-maxime-aliaga-orangutan-project-2_157b897803a64922922c7b50b69a0105?$media-collection-half-dt$",
+    "title": "Orangutans",
+    "subtitle": "Wise Swingers of the Rainforest",
+    "text": "Meet the orangutans, the intelligent masters of the rainforest canopy! Their clever tool use, playful nature, and critically endangered status make them a captivating species. Discover their world and how you can join the fight to protect these red-haired wonders.",
+    "href": "https://www.worldwildlife.org/species/orangutan"
+  },
+  {
+    "id": "red-panda",
+    "src": "https://geographical.co.uk/wp-content/uploads/panda1200-1.jpg",
+    "title": "Red Pandas",
+    "subtitle": "Rusty Red Wonders",
+    "text": "Red pandas: Adorable but not quite pandas! These fiery red marvels climb the Eastern Himalayas. However, habitat loss and the pet trade threaten them. Become a Red Panda Champion: support conservation and choose sustainable products.",
+    "href": "https://www.worldwildlife.org/species/red-panda"
+  },
+  {
+    "id": "elephant",
+    "src": "https://cdn.mos.cms.futurecdn.net/uiCrUgVCf64TzEdTM8x9aD-1200-80.jpg.webp",
+    "title": "Elephants",
+    "subtitle": "Giants of Memory and Family",
+    "text": "Unveiling the wonder of elephants! These intelligent creatures boast incredible memories, strong social bonds, and play a vital role in their ecosystems. Learn about the different elephant species, the threats they face, and how you can help secure a future for these gentle giants.",
+    "href": "https://www.worldwildlife.org/species/elephant"
+  },
+  {
+    "id": "rhino",
+    "src": "https://d1jyxxz9imt9yb.cloudfront.net/medialib/3641/image/p1300x1300/AdobeStock_456205385_420075_reduced.webp",
+    "title": "Rhinos",
+    "subtitle": "Titans with Horns",
+    "text": "Rhinos: Powerhouses with prehistoric panache! Explore the five rhino species, each unique. Learn the ecological roles they play and the threats they face from poachers. Discover how you can champion these rhino warriors and help secure their future.",
+    "href": "https://www.worldwildlife.org/species/javan-rhino"
+  },
+  {
+    "id": "tortoise",
+    "src": "https://d1jyxxz9imt9yb.cloudfront.net/medialib/4404/image/p1300x1300/IMG_6230_reduced.webp",
+    "title": "Tortoises",
+    "subtitle": "Timeless Tanks",
+    "text": "Champions of longevity, some live over 150 years! Their iconic shells shield them from harm. Found on most continents, they've adapted to diverse habitats. Sadly, habitat loss and climate change threaten them. Become a Tortoise Titan!",
+    "href": "https://www.worldwildlife.org/species/giant-tortoise"
+  },
+  {
+    "id": "seal",
+    "src": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/harbor-seal-pup-at-sunset-jeremy-cram-photography.jpg",
+    "title": "Seals",
+    "subtitle": "Masters of the Deep",
+    "text": "Seals: Sleek and streamlined, they rule the oceans with grace. From the colossal elephant seal to the spotted harbor seal, these pinnipeds are perfectly adapted for life in the water. Dive deeper and discover how they navigate the vast oceans and the challenges they face in a changing world.",
+    "href": "https://www.worldwildlife.org/species/seals"
+  }
+]
