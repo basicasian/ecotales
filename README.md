@@ -8,6 +8,13 @@ Animal protection encompasses various aspects, including animal rights, welfare,
 
 The name "EcoTales", not only does the Eco stand for ecologial but is a wordplay on the word tales. It draws inspiration from the mythological concept of 'Echo,' symbolizing the spread and amplification of vital messages — in this case, the call to protect our planet’s wildlife.
 
+<p align="middle">
+  <img src="homepage.png" alt="Start Screen" width="25%"/> 
+  <img src="explore.png" alt="Calibration Spot" width="25%"/> 
+  <img src="share.png" alt="Grabbing Mushroom" width="25%"/> 
+  <img src="create.png" alt="Grabbing Mushroom" width="25%"/> 
+</p>
+
 ## Features
 
 EcoTales offers the following main features:
