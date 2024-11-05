@@ -1,7 +1,7 @@
 # EcoTales
 
 EcoTales is a collaborative platform designed to spread awareness about wildlife protection and conservation. It provides users with a space to share posts, insights, and artistic creations centered on the theme of animal protection, with a special focus 
-on wildlife. This app allows users to collaboratively create artwork, each contributing a part to form a larger picture, thus fostering a community-driven approach to conservation. This project was done as part of the 2024 Digital Art and Design class of BIT Beijing. 
+on wildlife. This app allows users to collaboratively create artwork, each contributing a part to form a larger picture, thus fostering a community-driven approach to conservation. This project was done as part of the 2024SS Digital Art and Design class of BIT Beijing. 
 
 **Creators:** Renate Zhang  
 
